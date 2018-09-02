@@ -17,5 +17,5 @@ const plugins = require('gulp-load-plugins')();
 // Load gulp tasks
 //
 
-plugins.loadSubtasks('gulpflow/tasks/*.js');
-plugins.loadSubtasks('gulpflow/core/*.js');
+plugins.loadSubtasks(__dirname + '/gulpflow/tasks/*.js');
+plugins.loadSubtasks(__dirname + '/gulpflow/core/*.js');
