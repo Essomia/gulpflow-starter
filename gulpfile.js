@@ -18,3 +18,4 @@ const plugins  = require('gulp-load-plugins')();
 //
 
 plugins.loadSubtasks('gulpflow/tasks/*.js');
+plugins.loadSubtasks('gulpflow/core/*.js');
