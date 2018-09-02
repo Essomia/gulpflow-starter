@@ -141,7 +141,8 @@ const config = {
     },
 
     tasks: {
-        assets:['images', 'fonts', 'html', 'json', 'css']
+        assets:['images', 'fonts', 'html', 'json', 'css'],
+        prod:  ['assets', 'scss', 'js']
     },
 
     root: pathRoot
