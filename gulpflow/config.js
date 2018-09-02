@@ -102,6 +102,19 @@ const config = {
         dest: '/assets/raw'
     },
 
+    html: {
+        src: [
+            pathRoot.src + regexFolder + '/assets/raw' + regexFile + '.html'
+        ],
+        htmlmin: {
+            keepClosingSlash: true,
+            quoteCharacter: '\"',
+            removeComments: true,
+            collapseWhitespace: true
+        },
+        dest: '/assets/raw'
+    },
+
 
     // -------------------------------------
     //   Global
