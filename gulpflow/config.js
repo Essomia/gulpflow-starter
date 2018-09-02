@@ -19,6 +19,31 @@ const pathRoot = {
 const config = {
 
     // -------------------------------------
+    //   Stylesheets
+    // -------------------------------------
+
+    scss: {
+        src: [
+            pathRoot.src + regexFolder + '/scss' + regexFile + '.{sass,scss}'
+        ],
+        sass: {
+            outputStyle: 'expanded',
+            precision: 5,
+            includePaths: [
+                pathRoot.src
+            ]
+        },
+        autoprefixer: {
+            browsers: ['last 2 versions', '> 2%'],
+            cascade: false
+        },
+        cssnano: {
+            reduceIdents: false
+        },
+        dest: '/styles'
+    },
+
+    // -------------------------------------
     //   Scripts
     // -------------------------------------
 
@@ -43,7 +68,8 @@ const config = {
     // -------------------------------------
 
     ifs: {
-        doMinify: true
+        doMinify: true,
+        doSourcemaps: false
     },
 
     root: pathRoot
