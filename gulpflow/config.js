@@ -88,6 +88,20 @@ const config = {
         dest: '/assets/images'
     },
 
+    css: {
+        src: [
+            pathRoot.src + regexFolder + '/assets/raw' + regexFile + '.css'
+        ],
+        autoprefixer: {
+            browsers: ['last 2 versions', '> 2%'],
+            cascade: false
+        },
+        cssnano: {
+            reduceIdents: false
+        },
+        dest: '/assets/raw'
+    },
+
 
     // -------------------------------------
     //   Global
