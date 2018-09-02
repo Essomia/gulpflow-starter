@@ -95,6 +95,14 @@ const config = {
         dest: '/assets/images'
     },
 
+    json: {
+        src: [
+            pathRoot.src + regexFolder + '/assets/raw' + regexFile + '.json'
+        ],
+        jsonminify: {},
+        dest: '/assets/raw'
+    },
+
     css: {
         src: [
             pathRoot.src + regexFolder + '/assets/raw' + regexFile + '.css'
