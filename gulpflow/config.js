@@ -4,6 +4,9 @@
 
 'use strict';
 
+const fs    = require('fs');
+const merge = require('merge-objects');
+
 
 //
 // Default configurations
@@ -55,7 +58,6 @@ let config = {
     },
 
 
-
     // -------------------------------------
     //   Tasks
     // -------------------------------------
@@ -67,6 +69,17 @@ let config = {
     }
 
 };
+
+
+//
+// Import project configurations when exist
+//
+
+if (fs.existsSync('./gulpflow.json')) {
+    var projectConfig = JSON.parse(fs.readFileSync('./gulpflow.json'));
+
+    config = merge(config, projectConfig);
+}
 
 
 //
