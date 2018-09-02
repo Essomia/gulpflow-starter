@@ -62,6 +62,32 @@ const config = {
         dest: '/scripts'
     },
 
+    // -------------------------------------
+    //   Statics
+    // -------------------------------------
+
+    images: {
+        src: [
+            pathRoot.src + regexFolder + '/assets/images' + regexFile + '.{jpg,jpeg,png,gif,svg}'
+        ],
+        imagemin: {
+            options: {
+                jpegtran: { progressive: true },
+                optipng: { optimizationLevel: 5 },
+                gifsicle: { interlaced: true },
+                svgo: {
+                    plugins: [{
+                        removeViewBox: true,
+                        removeUnknownsAndDefaults: true,
+                        cleanupIDs: true
+                    }]
+                }
+            },
+            verbose: { verbose: true }
+        },
+        dest: '/assets/images'
+    },
+
 
     // -------------------------------------
     //   Global
