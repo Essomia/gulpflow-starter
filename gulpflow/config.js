@@ -66,6 +66,13 @@ const config = {
     //   Statics
     // -------------------------------------
 
+    fonts: {
+        src: [
+            pathRoot.src + regexFolder + '/assets/fonts' + regexFile + '.{eot,svg,ttf,woff,woff2}'
+        ],
+        dest: '/assets/fonts'
+    },
+
     images: {
         src: [
             pathRoot.src + regexFolder + '/assets/images' + regexFile + '.{jpg,jpeg,png,gif,svg}'
