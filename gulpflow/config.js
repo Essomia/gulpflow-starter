@@ -140,6 +140,10 @@ const config = {
         doSourcemaps: false
     },
 
+    tasks: {
+        assets:['images', 'fonts', 'html', 'json', 'css']
+    },
+
     root: pathRoot
 
 };
