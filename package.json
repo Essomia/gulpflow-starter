@@ -12,7 +12,7 @@
   "bugs": {
     "url": "https://github.com/essomia/frontend-boilerplate/issues"
   },
-  "main": "",
+  "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
