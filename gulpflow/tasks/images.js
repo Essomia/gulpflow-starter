@@ -4,10 +4,9 @@
 
 'use strict';
 
-const config              = require('../config');
-const utilsFilenameHint   = require('../util/filenameHint');
-const utilsOnErrorHandler = require('../util/onErrorHandler');
-const utilsRename         = require('../util/renamePath');
+const config      = require('../config');
+const filenameLog = require('../util/filenameLog');
+const errorLog    = require('../util/errorLog');
 
 const gulp     = require('gulp');
 const gulpif   = require('gulp-if');
@@ -23,15 +22,13 @@ function images() {
 
     gulp.task('images', () => {
         return gulp.src(config.images.src)
-            .pipe(utilsFilenameHint())
-            .pipe(plumber({ errorHandler: utilsOnErrorHandler }))
+            .pipe(plumber({ errorHandler: errorLog }))
             .pipe(gulpif(
                 config.ifs.doMinify,
                 imagemin(config.images.imagemin)
             ))
-            .pipe(utilsRename(config.images.dest))
+            .pipe(filenameLog())
             .pipe(gulp.dest(config.root.dest))
-            .pipe(utilsFilenameHint(true))
         ;
     });
 

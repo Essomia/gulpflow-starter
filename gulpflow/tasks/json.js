@@ -4,10 +4,9 @@
 
 'use strict';
 
-const config              = require('../config');
-const utilsFilenameHint   = require('../util/filenameHint');
-const utilsOnErrorHandler = require('../util/onErrorHandler');
-const utilsRename         = require('../util/renamePath');
+const config      = require('../config');
+const filenameLog = require('../util/filenameLog');
+const errorLog    = require('../util/errorLog');
 
 const gulp       = require('gulp');
 const gulpif     = require('gulp-if');
@@ -23,15 +22,13 @@ function json() {
 
     gulp.task('json', () => {
         return gulp.src(config.json.src)
-            .pipe(utilsFilenameHint())
-            .pipe(plumber({ errorHandler: utilsOnErrorHandler }))
+            .pipe(plumber({ errorHandler: errorLog }))
             .pipe(gulpif(
                 config.ifs.doMinify,
                 jsonminify(config.json.jsonminify)
             ))
-            .pipe(utilsRename(config.json.dest))
+            .pipe(filenameLog())
             .pipe(gulp.dest(config.root.dest))
-            .pipe(utilsFilenameHint(true))
         ;
     });
 
