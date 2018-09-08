@@ -9,8 +9,8 @@
 // Require basic plugins
 //
 
-const gulp     = require('gulp');
-const plugins  = require('gulp-load-plugins')();
+const gulp    = require('gulp');
+const plugins = require('gulp-load-plugins')();
 
 
 //

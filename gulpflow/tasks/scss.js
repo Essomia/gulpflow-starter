@@ -4,10 +4,9 @@
 
 'use strict';
 
-const config              = require('../config');
-const utilsFilenameHint   = require('../util/filenameHint');
-const utilsOnErrorHandler = require('../util/onErrorHandler');
-const utilsRename         = require('../util/renamePath');
+const config      = require('../config');
+const filenameLog = require('../util/filenameLog');
+const errorLog    = require('../util/errorLog');
 
 const gulp         = require('gulp');
 const gulpif       = require('gulp-if');
@@ -26,8 +25,7 @@ function scss() {
 
     gulp.task('scss', () => {
         return gulp.src(config.scss.src)
-            .pipe(utilsFilenameHint())
-            .pipe(plumber({ errorHandler: utilsOnErrorHandler }))
+            .pipe(plumber({ errorHandler: errorLog }))
             .pipe(gulpif(
                 config.ifs.doSourcemaps,
                 sourcemaps.init()
@@ -39,9 +37,8 @@ function scss() {
                 cssnano(config.scss.cssnano)
             ))
             .pipe(sourcemaps.write('.'))
-            .pipe(utilsRename(config.scss.dest))
+            .pipe(filenameLog())
             .pipe(gulp.dest(config.root.dest))
-            .pipe(utilsFilenameHint(true))
         ;
     });
 
