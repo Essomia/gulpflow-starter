@@ -23,12 +23,17 @@ const sourcemaps   = require('gulp-sourcemaps');
 function css() {
 
     gulp.task('css', () => {
-        return gulp.src(config.css.src)
+        return gulp.src(config.root.src + config.css.src)
             .pipe(plumber({ errorHandler: errorLog }))
-            .pipe(autoprefixer(config.css.autoprefixer))
+            .pipe(autoprefixer({
+                browsers: ['last 2 versions', '> 2%'],
+                cascade: false
+            }))
             .pipe(gulpif(
                 config.ifs.doMinify,
-                cssnano(config.css.cssnano)
+                cssnano({
+                    reduceIdents: false
+                })
             ))
             .pipe(filenameLog())
             .pipe(gulp.dest(config.root.dest))

@@ -22,12 +22,16 @@ const uglify  = require('gulp-uglify'); // minifyJS
 function js() {
 
     gulp.task('js', () => {
-        return gulp.src(config.js.src)
+        return gulp.src(config.root.src + config.js.src)
             .pipe(plumber({ errorHandler: errorLog }))
-            .pipe(include(config.js.include))
+            .pipe(include({
+                extensions: 'js',
+                includePaths: [ config.root.src ],
+                hardFail: false
+            }))
             .pipe(gulpif(
                 config.ifs.doMinify,
-                uglify(config.js.uglify)
+                uglify({})
             ))
             .pipe(filenameLog())
             .pipe(gulp.dest(config.root.dest))

@@ -21,11 +21,11 @@ const plumber    = require('gulp-plumber');
 function json() {
 
     gulp.task('json', () => {
-        return gulp.src(config.json.src)
+        return gulp.src(config.root.src + config.json.src)
             .pipe(plumber({ errorHandler: errorLog }))
             .pipe(gulpif(
                 config.ifs.doMinify,
-                jsonminify(config.json.jsonminify)
+                jsonminify({})
             ))
             .pipe(filenameLog())
             .pipe(gulp.dest(config.root.dest))

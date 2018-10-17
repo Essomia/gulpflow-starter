@@ -21,11 +21,16 @@ const plumber = require('gulp-plumber');
 function html() {
 
     gulp.task('html', () => {
-        return gulp.src(config.html.src)
+        return gulp.src(config.root.src + config.html.src)
             .pipe(plumber({ errorHandler: errorLog }))
             .pipe(gulpif(
                 config.ifs.doMinify,
-                htmlmin(config.html.htmlmin)
+                htmlmin({
+                    keepClosingSlash: true,
+                    quoteCharacter: '\"',
+                    removeComments: true,
+                    collapseWhitespace: true
+                })
             ))
             .pipe(filenameLog())
             .pipe(gulp.dest(config.root.dest))
