@@ -143,7 +143,7 @@ const config = {
     tasks: {
         watch: ['images', 'fonts', 'html', 'json', 'css', 'scss', 'js'],
         assets:['images', 'fonts', 'html', 'json', 'css'],
-        prod:  ['assets', 'scss', 'js']
+        prod:  ['images', 'fonts', 'html', 'json', 'css', 'scss', 'js']
     },
 
     root: pathRoot
