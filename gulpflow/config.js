@@ -4,149 +4,84 @@
 
 'use strict';
 
+
 //
-// Configurations
+// Default configurations
 //
 
-const regexFile   = '/**/[^_]*';      // to ignore partial files
-const regexFolder = '/components/**';
-
-const pathRoot = {
-    src: './demo/src',
-    dest: './demo/build'
-};
-
-const config = {
-
-    // -------------------------------------
-    //   Stylesheets
-    // -------------------------------------
-
-    scss: {
-        src: [
-            pathRoot.src + regexFolder + '/scss' + regexFile + '.{sass,scss}'
-        ],
-        sass: {
-            outputStyle: 'expanded',
-            precision: 5,
-            includePaths: [
-                pathRoot.src
-            ]
-        },
-        autoprefixer: {
-            browsers: ['last 2 versions', '> 2%'],
-            cascade: false
-        },
-        cssnano: {
-            reduceIdents: false
-        },
-        dest: '/styles'
-    },
-
-    // -------------------------------------
-    //   Scripts
-    // -------------------------------------
-
-    js: {
-        src: [
-            pathRoot.src + regexFolder + '/js' + regexFile + '.js'
-        ],
-        include: {
-            extensions: 'js',
-            includePaths: [
-                pathRoot.src
-            ],
-            hardFail: false
-        },
-        uglify: {},
-        dest: '/scripts'
-    },
-
-    // -------------------------------------
-    //   Statics
-    // -------------------------------------
-
-    fonts: {
-        src: [
-            pathRoot.src + regexFolder + '/assets/fonts' + regexFile + '.{eot,svg,ttf,woff,woff2}'
-        ],
-        dest: '/assets/fonts'
-    },
-
-    images: {
-        src: [
-            pathRoot.src + regexFolder + '/assets/images' + regexFile + '.{jpg,jpeg,png,gif,svg}'
-        ],
-        imagemin: {
-            options: {
-                jpegtran: { progressive: true },
-                optipng: { optimizationLevel: 5 },
-                gifsicle: { interlaced: true },
-                svgo: {
-                    plugins: [{
-                        removeViewBox: true,
-                        removeUnknownsAndDefaults: true,
-                        cleanupIDs: true
-                    }]
-                }
-            },
-            verbose: { verbose: true }
-        },
-        dest: '/assets/images'
-    },
-
-    json: {
-        src: [
-            pathRoot.src + regexFolder + '/assets/raw' + regexFile + '.json'
-        ],
-        jsonminify: {},
-        dest: '/assets/raw'
-    },
-
-    css: {
-        src: [
-            pathRoot.src + regexFolder + '/assets/raw' + regexFile + '.css'
-        ],
-        autoprefixer: {
-            browsers: ['last 2 versions', '> 2%'],
-            cascade: false
-        },
-        cssnano: {
-            reduceIdents: false
-        },
-        dest: '/assets/raw'
-    },
-
-    html: {
-        src: [
-            pathRoot.src + regexFolder + '/assets/raw' + regexFile + '.html'
-        ],
-        htmlmin: {
-            keepClosingSlash: true,
-            quoteCharacter: '\"',
-            removeComments: true,
-            collapseWhitespace: true
-        },
-        dest: '/assets/raw'
-    },
-
+let config = {
 
     // -------------------------------------
     //   Global
     // -------------------------------------
 
-    ifs: {
-        doMinify: true,
-        doSourcemaps: false
+    root: {
+        src: './demo/src',
+        dest: './demo/build'
     },
+
+    ifs: {
+        doSourcemaps: false,
+        doMinify: true
+    },
+
+
+    // -------------------------------------
+    //   Sources
+    // -------------------------------------
+
+    scss: {
+        src: [
+            '/components/**/scss' + '/**/[^_]*.{sass,scss}'
+        ]
+    },
+
+    js: {
+        src: [
+            '/components/**/js' + '/**/[^_]*.js'
+        ]
+    },
+
+    fonts: {
+        src: [
+            '/components/**/assets/fonts' + '/**/[^_]*.{eot,svg,ttf,woff,woff2}'
+        ]
+    },
+
+    images: {
+        src: [
+            '/components/**/assets/images' + '/**/[^_]*.{jpg,jpeg,png,gif,svg}'
+        ]
+    },
+
+    json: {
+        src: [
+            '/components/**/assets/raw' + '/**/[^_]*.json'
+        ]
+    },
+
+    css: {
+        src: [
+            '/components/**/assets/raw' + '/**/[^_]*.css'
+        ]
+    },
+
+    html: {
+        src: [
+            '/components/**/assets/raw' + '/**/[^_]*.html'
+        ]
+    },
+
+
+    // -------------------------------------
+    //   Tasks
+    // -------------------------------------
 
     tasks: {
         watch: ['images', 'fonts', 'html', 'json', 'css', 'scss', 'js'],
         assets:['images', 'fonts', 'html', 'json', 'css'],
         prod:  ['images', 'fonts', 'html', 'json', 'css', 'scss', 'js']
-    },
-
-    root: pathRoot
+    }
 
 };
 

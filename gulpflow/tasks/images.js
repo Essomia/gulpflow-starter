@@ -9,7 +9,6 @@ const filenameLog = require('../util/filenameLog');
 const errorLog    = require('../util/errorLog');
 
 const gulp     = require('gulp');
-const gulpif   = require('gulp-if');
 const imagemin = require('gulp-imagemin'); // optimizeIMAGE
 const plumber  = require('gulp-plumber');
 
@@ -21,12 +20,19 @@ const plumber  = require('gulp-plumber');
 function images() {
 
     gulp.task('images', () => {
-        return gulp.src(config.images.src)
+        return gulp.src(config.root.src + config.images.src)
             .pipe(plumber({ errorHandler: errorLog }))
-            .pipe(gulpif(
-                config.ifs.doMinify,
-                imagemin(config.images.imagemin)
-            ))
+            .pipe(imagemin([
+                imagemin.jpegtran({ progressive: true }),
+                imagemin.optipng({ optimizationLevel: 5 }),
+                imagemin.gifsicle({ interlaced: true }),
+                imagemin.svgo({
+                    plugins: [
+                        { removeViewBox: true },
+                        { removeUnknownsAndDefaults: true },
+                        { cleanupIDs: true }
+                    ]
+                })], { verbose: true }))
             .pipe(filenameLog())
             .pipe(gulp.dest(config.root.dest))
         ;
