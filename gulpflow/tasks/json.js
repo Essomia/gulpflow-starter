@@ -21,7 +21,7 @@ const plumber    = require('gulp-plumber');
 function json() {
 
     gulp.task('json', () => {
-        return gulp.src(config.root.src + config.json.src)
+        return gulp.src(config.root.src + config.sources.json)
             .pipe(plumber({ errorHandler: errorLog }))
             .pipe(gulpif(
                 config.ifs.doMinify,

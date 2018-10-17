@@ -20,7 +20,7 @@ const plumber  = require('gulp-plumber');
 function images() {
 
     gulp.task('images', () => {
-        return gulp.src(config.root.src + config.images.src)
+        return gulp.src(config.root.src + config.sources.images)
             .pipe(plumber({ errorHandler: errorLog }))
             .pipe(imagemin([
                 imagemin.jpegtran({ progressive: true }),

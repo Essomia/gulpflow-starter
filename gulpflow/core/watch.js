@@ -16,7 +16,7 @@ function watch() {
 
     gulp.task('watch', () => {
         config.tasks.watch.forEach((task) => {
-            gulp.watch(config[task].src, gulp.series(task));
+            gulp.watch(config.sources.[task], gulp.series(task));
         });
     });
 

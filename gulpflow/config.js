@@ -30,47 +30,30 @@ let config = {
     //   Sources
     // -------------------------------------
 
-    scss: {
-        src: [
-            '/components/**/scss' + '/**/[^_]*.{sass,scss}'
-        ]
-    },
-
-    js: {
-        src: [
+    sources: {
+        js: [
             '/components/**/js' + '/**/[^_]*.js'
-        ]
-    },
-
-    fonts: {
-        src: [
+        ],
+        scss: [
+            '/components/**/scss' + '/**/[^_]*.{sass,scss}'
+        ],
+        css: [
+            '/components/**/assets/raw' + '/**/[^_]*.css'
+        ],
+        fonts: [
             '/components/**/assets/fonts' + '/**/[^_]*.{eot,svg,ttf,woff,woff2}'
-        ]
-    },
-
-    images: {
-        src: [
+        ],
+        html: [
+            '/components/**/assets/raw' + '/**/[^_]*.html'
+        ],
+        images: [
             '/components/**/assets/images' + '/**/[^_]*.{jpg,jpeg,png,gif,svg}'
-        ]
-    },
-
-    json: {
-        src: [
+        ],
+        json: [
             '/components/**/assets/raw' + '/**/[^_]*.json'
         ]
     },
 
-    css: {
-        src: [
-            '/components/**/assets/raw' + '/**/[^_]*.css'
-        ]
-    },
-
-    html: {
-        src: [
-            '/components/**/assets/raw' + '/**/[^_]*.html'
-        ]
-    },
 
 
     // -------------------------------------

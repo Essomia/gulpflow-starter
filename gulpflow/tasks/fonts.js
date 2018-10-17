@@ -19,7 +19,7 @@ const plumber = require('gulp-plumber');
 function fonts() {
 
     gulp.task('fonts', () => {
-        return gulp.src(config.root.src + config.fonts.src)
+        return gulp.src(config.root.src + config.sources.fonts)
             .pipe(plumber({ errorHandler: errorLog }))
             .pipe(filenameLog())
             .pipe(gulp.dest(config.root.dest))

@@ -24,7 +24,7 @@ const sourcemaps   = require('gulp-sourcemaps');
 function scss() {
 
     gulp.task('scss', () => {
-        return gulp.src(config.root.src + config.scss.src)
+        return gulp.src(config.root.src + config.sources.scss)
             .pipe(plumber({ errorHandler: errorLog }))
             .pipe(gulpif(
                 config.ifs.doSourcemaps,
