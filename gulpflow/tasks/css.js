@@ -23,7 +23,7 @@ const sourcemaps   = require('gulp-sourcemaps');
 function css() {
 
     gulp.task('css', () => {
-        return gulp.src(config.root.src + config.css.src)
+        return gulp.src(config.root.src + config.sources.css)
             .pipe(plumber({ errorHandler: errorLog }))
             .pipe(autoprefixer({
                 browsers: ['last 2 versions', '> 2%'],

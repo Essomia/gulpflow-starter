@@ -22,7 +22,7 @@ const uglify  = require('gulp-uglify'); // minifyJS
 function js() {
 
     gulp.task('js', () => {
-        return gulp.src(config.root.src + config.js.src)
+        return gulp.src(config.root.src + config.sources.js)
             .pipe(plumber({ errorHandler: errorLog }))
             .pipe(include({
                 extensions: 'js',
