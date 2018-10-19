@@ -12,8 +12,8 @@ const regexFile   = '/**/[^_]*';      // to ignore partial files
 const regexFolder = '/components/**';
 
 const pathRoot = {
-    src: './example/src',
-    dest: './example/dest'
+    src: './demo/src',
+    dest: './demo/build'
 };
 
 const config = {
