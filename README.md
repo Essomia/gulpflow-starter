@@ -40,7 +40,38 @@ All Gulp config are written in `./gulpflow/config.js`
 Conditional compilation and tasks list can be configured in the end of `./gulpflow/config.js`.
 
 
+## Folders structure
+
+The default sources folders structures is:
+
+```
+/demo/src
+    /components
+        /<component_name>
+            /assets
+                /fonts
+                /images
+                /raw
+            /js
+            /scss
+```
+
+And will compile files to destination:
+
+```
+/demo/build
+    /<component_name>
+        /assets
+            /fonts
+            /images
+            /raw
+        /js
+        /scss
+```
+
+
 ## Notable changes:
 
 * 1.0.0
     * Initial project with all basics tasks in `./gulpflow/*`
+    * Add example of project folder structure in `./demo/src/` to be compiled into `./demo/build/`
