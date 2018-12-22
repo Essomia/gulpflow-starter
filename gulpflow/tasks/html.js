@@ -4,10 +4,9 @@
 
 'use strict';
 
-const config              = require('../config');
-const utilsFilenameHint   = require('../util/filenameHint');
-const utilsOnErrorHandler = require('../util/onErrorHandler');
-const utilsRename         = require('../util/renamePath');
+const config      = require('../config');
+const filenameLog = require('../util/filenameLog');
+const errorLog    = require('../util/errorLog');
 
 const gulp    = require('gulp');
 const gulpif  = require('gulp-if');
@@ -22,16 +21,19 @@ const plumber = require('gulp-plumber');
 function html() {
 
     gulp.task('html', () => {
-        return gulp.src(config.html.src)
-            .pipe(utilsFilenameHint())
-            .pipe(plumber({ errorHandler: utilsOnErrorHandler }))
+        return gulp.src(config.root.src + config.sources.html)
+            .pipe(plumber({ errorHandler: errorLog }))
             .pipe(gulpif(
                 config.ifs.doMinify,
-                htmlmin(config.html.htmlmin)
+                htmlmin({
+                    keepClosingSlash: true,
+                    quoteCharacter: '\"',
+                    removeComments: true,
+                    collapseWhitespace: true
+                })
             ))
-            .pipe(utilsRename(config.html.dest))
+            .pipe(filenameLog())
             .pipe(gulp.dest(config.root.dest))
-            .pipe(utilsFilenameHint(true))
         ;
     });
 

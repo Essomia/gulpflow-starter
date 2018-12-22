@@ -4,29 +4,19 @@
 
 'use strict';
 
-const config = require('../config');
-const gulp   = require('gulp');
-const colors = require('colors/safe');
-const log    = require('fancy-log');
+const config  = require('../config');
+const gulp    = require('gulp');
 
 
 //
 // Defined
 //
 
-function msgWatch() {
-    log(colors.bgYellow(`##############################`));
-    log(colors.bgYellow(`#### START WATCHING TASKS ####`));
-    log(colors.bgYellow(`##############################`));
-}
-
 function watch() {
 
     gulp.task('watch', () => {
-        msgWatch();
-
         config.tasks.watch.forEach((task) => {
-            gulp.watch(config[task].src, gulp.series(task));
+            gulp.watch(config.sources.[task], gulp.series(task));
         });
     });
 

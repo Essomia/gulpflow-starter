@@ -4,10 +4,9 @@
 
 'use strict';
 
-const config              = require('../config');
-const utilsFilenameHint   = require('../util/filenameHint');
-const utilsOnErrorHandler = require('../util/onErrorHandler');
-const utilsRename         = require('../util/renamePath');
+const config      = require('../config');
+const filenameLog = require('../util/filenameLog');
+const errorLog    = require('../util/errorLog');
 
 const gulp         = require('gulp');
 const gulpif       = require('gulp-if');
@@ -25,23 +24,30 @@ const sourcemaps   = require('gulp-sourcemaps');
 function scss() {
 
     gulp.task('scss', () => {
-        return gulp.src(config.scss.src)
-            .pipe(utilsFilenameHint())
-            .pipe(plumber({ errorHandler: utilsOnErrorHandler }))
+        return gulp.src(config.root.src + config.sources.scss)
+            .pipe(plumber({ errorHandler: errorLog }))
             .pipe(gulpif(
                 config.ifs.doSourcemaps,
                 sourcemaps.init()
             ))
-            .pipe(sass(config.scss.sass))
-            .pipe(autoprefixer(config.scss.autoprefixer))
+            .pipe(sass({
+                outputStyle: 'expanded',
+                precision: 5,
+                includePaths: [ config.root.src ]
+            }))
+            .pipe(autoprefixer({
+                browsers: ['last 2 versions', '> 2%'],
+                cascade: false
+            }))
             .pipe(gulpif(
                 config.ifs.doMinify,
-                cssnano(config.scss.cssnano)
+                cssnano({
+                    reduceIdents: false
+                })
             ))
             .pipe(sourcemaps.write('.'))
-            .pipe(utilsRename(config.scss.dest))
+            .pipe(filenameLog())
             .pipe(gulp.dest(config.root.dest))
-            .pipe(utilsFilenameHint(true))
         ;
     });
 
