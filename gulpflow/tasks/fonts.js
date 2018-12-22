@@ -4,13 +4,11 @@
 
 'use strict';
 
-const config              = require('../config');
-const utilsFilenameHint   = require('../util/filenameHint');
-const utilsOnErrorHandler = require('../util/onErrorHandler');
-const utilsRename         = require('../util/renamePath');
+const config      = require('../config');
+const filenameLog = require('../util/filenameLog');
+const errorLog    = require('../util/errorLog');
 
 const gulp    = require('gulp');
-const gulpif  = require('gulp-if');
 const plumber = require('gulp-plumber');
 
 
@@ -21,12 +19,10 @@ const plumber = require('gulp-plumber');
 function fonts() {
 
     gulp.task('fonts', () => {
-        return gulp.src(config.fonts.src)
-            .pipe(utilsFilenameHint())
-            .pipe(plumber({ errorHandler: utilsOnErrorHandler }))
-            .pipe(utilsRename(config.fonts.dest))
+        return gulp.src(config.root.src + config.sources.fonts)
+            .pipe(plumber({ errorHandler: errorLog }))
+            .pipe(filenameLog())
             .pipe(gulp.dest(config.root.dest))
-            .pipe(utilsFilenameHint(true))
         ;
     });
 

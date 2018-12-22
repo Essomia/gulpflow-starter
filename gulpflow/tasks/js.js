@@ -4,10 +4,9 @@
 
 'use strict';
 
-const config              = require('../config');
-const utilsFilenameHint   = require('../util/filenameHint');
-const utilsOnErrorHandler = require('../util/onErrorHandler');
-const utilsRename         = require('../util/renamePath');
+const config      = require('../config');
+const filenameLog = require('../util/filenameLog');
+const errorLog    = require('../util/errorLog');
 
 const gulp    = require('gulp');
 const gulpif  = require('gulp-if');
@@ -23,17 +22,19 @@ const uglify  = require('gulp-uglify'); // minifyJS
 function js() {
 
     gulp.task('js', () => {
-        return gulp.src(config.js.src)
-            .pipe(utilsFilenameHint())
-            .pipe(plumber({ errorHandler: utilsOnErrorHandler }))
-            .pipe(include(config.js.include))
+        return gulp.src(config.root.src + config.sources.js)
+            .pipe(plumber({ errorHandler: errorLog }))
+            .pipe(include({
+                extensions: 'js',
+                includePaths: [ config.root.src ],
+                hardFail: false
+            }))
             .pipe(gulpif(
                 config.ifs.doMinify,
-                uglify(config.js.uglify)
+                uglify({})
             ))
-            .pipe(utilsRename(config.js.dest))
+            .pipe(filenameLog())
             .pipe(gulp.dest(config.root.dest))
-            .pipe(utilsFilenameHint(true))
         ;
     });
 

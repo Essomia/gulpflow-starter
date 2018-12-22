@@ -4,27 +4,17 @@
 
 'use strict';
 
-const config = require('../config');
-const gulp   = require('gulp');
-const colors = require('colors/safe');
-const log    = require('fancy-log');
+const config  = require('../config');
+const gulp    = require('gulp');
 
 
 //
 // Defined
 //
 
-function msgBuild(cb) {
-    log(colors.bgYellow(`##############################`));
-    log(colors.bgYellow(`#### BUILD PROJECT ###########`));
-    log(colors.bgYellow(`##############################`));
-
-    cb();
-}
-
 function build() {
 
-    gulp.task('build', gulp.series(msgBuild, config.tasks.prod));
+    return gulp.task('build', gulp.series(config.tasks.prod));
 
 }
 
