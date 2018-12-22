@@ -45,43 +45,43 @@ Then, you can customize your project configuration. As an exmple, below, you hav
 ```
 {
     "root": {
-        src: './demo/src',
-        dest: './demo/build'
+        "src": "./demo/src",
+        "dest": "./demo/build"
     },
 
     "ifs": {
-        doSourcemaps: false,
-        doMinify: true
+        "doSourcemaps": false,
+        "doMinify": true
     },
 
     "sources": {
-        js: [
-            '/components/**/js' + '/**/[^_]*.js'
+        "js": [
+            "/components/**/js/**/[^_]*.js"
         ],
-        scss: [
-            '/components/**/scss' + '/**/[^_]*.{sass,scss}'
+        "scss": [
+            "/components/**/scss/**/[^_]*.{sass,scss}"
         ],
-        css: [
-            '/components/**/assets/raw' + '/**/[^_]*.css'
+        "css": [
+            "/components/**/assets/raw/**/[^_]*.css"
         ],
-        fonts: [
-            '/components/**/assets/fonts' + '/**/[^_]*.{eot,svg,ttf,woff,woff2}'
+        "fonts": [
+            "/components/**/assets/fonts/**/[^_]*.{eot,svg,ttf,woff,woff2}"
         ],
-        html: [
-            '/components/**/assets/raw' + '/**/[^_]*.html'
+        "html": [
+            "/components/**/assets/raw/**/[^_]*.html"
         ],
-        images: [
-            '/components/**/assets/images' + '/**/[^_]*.{jpg,jpeg,png,gif,svg}'
+        "images": [
+            "/components/**/assets/images/**/[^_]*.{jpg,jpeg,png,gif,svg}"
         ],
-        json: [
-            '/components/**/assets/raw' + '/**/[^_]*.json'
+        "json": [
+            "/components/**/assets/raw/**/[^_]*.json"
         ]
     },
 
     "tasks": {
-        watch: ['images', 'fonts', 'html', 'json', 'css', 'scss', 'js'],
-        assets:['images', 'fonts', 'html', 'json', 'css'],
-        prod:  ['images', 'fonts', 'html', 'json', 'css', 'scss', 'js']
+        "watch": ["images", "fonts", "html", "json", "css", "scss", "js"],
+        "assets":["images", "fonts", "html", "json", "css"],
+        "prod":  ["images", "fonts", "html", "json", "css", "scss", "js"]
     }
 }
 ```
