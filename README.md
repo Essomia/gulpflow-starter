@@ -142,6 +142,10 @@ Thanks to all the amazing authors of theses packages:
 
 
 ## Changes log
+* 1.1.1
+    * Fix: Correct input path for `watch` tasks
+    * Fix: Adjust documentation of the `gulpflow.json`
+    * Fix: Merged project configuration
 * 1.1.0
     * Add merge configuration feature to custom your project configuration
     * Adjust tasks and configuration to be more customisable
