@@ -34,27 +34,13 @@ let config = {
     // -------------------------------------
 
     sources: {
-        js: [
-            '/components/**/js' + '/**/[^_]*.js'
-        ],
-        scss: [
-            '/components/**/scss' + '/**/[^_]*.{sass,scss}'
-        ],
-        css: [
-            '/components/**/assets/raw' + '/**/[^_]*.css'
-        ],
-        fonts: [
-            '/components/**/assets/fonts' + '/**/[^_]*.{eot,svg,ttf,woff,woff2}'
-        ],
-        html: [
-            '/components/**/assets/raw' + '/**/[^_]*.html'
-        ],
-        images: [
-            '/components/**/assets/images' + '/**/[^_]*.{jpg,jpeg,png,gif,svg}'
-        ],
-        json: [
-            '/components/**/assets/raw' + '/**/[^_]*.json'
-        ]
+        js:     '/components/**/js' + '/**/[^_]*.js',
+        scss:   '/components/**/scss' + '/**/[^_]*.{sass,scss}',
+        images: '/components/**/assets/images' + '/**/[^_]*.{jpg,jpeg,png,gif,svg}',
+        fonts:  '/components/**/assets/fonts' + '/**/[^_]*.{eot,svg,ttf,woff,woff2}',
+        html:   '/components/**/assets/raw' + '/**/[^_]*.html',
+        css:    '/components/**/assets/raw' + '/**/[^_]*.css',
+        json:   '/components/**/assets/raw' + '/**/[^_]*.json'
     },
 
 
@@ -77,6 +63,12 @@ let config = {
 
 if (fs.existsSync('./gulpflow.json')) {
     var projectConfig = JSON.parse(fs.readFileSync('./gulpflow.json'));
+
+    // Remove default values if key in projectConfig ...
+    if (projectConfig.root) { config.root = {}; }
+    if (projectConfig.ifs) { config.ifs = {}; }
+    if (projectConfig.sources) { config.sources = {}; }
+    if (projectConfig.tasks) { config.tasks = {}; }
 
     config = merge(config, projectConfig);
 }
