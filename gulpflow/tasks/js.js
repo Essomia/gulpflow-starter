@@ -33,8 +33,8 @@ function js() {
                 config.ifs.doMinify,
                 uglify({})
             ))
-            .pipe(filenameLog())
             .pipe(gulp.dest(config.root.dest))
+            .pipe(filenameLog())
         ;
     });
 

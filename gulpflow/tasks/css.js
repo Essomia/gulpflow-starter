@@ -35,8 +35,8 @@ function css() {
                     reduceIdents: false
                 })
             ))
-            .pipe(filenameLog())
             .pipe(gulp.dest(config.root.dest))
+            .pipe(filenameLog())
         ;
     });
 

@@ -18,7 +18,7 @@ function filenameLog() {
     return through.obj((file, encodage, cb) => {
         var filename = file.path.split(file.cwd)[1];
 
-        log.info(colors.green(`> .${filename}`));
+        log.info(colors.yellow(`> .${filename}`));
 
         cb(null, file);
     });
