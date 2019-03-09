@@ -21,8 +21,8 @@ function fonts() {
     gulp.task('fonts', () => {
         return gulp.src(config.root.src + config.sources.fonts)
             .pipe(plumber({ errorHandler: errorLog }))
-            .pipe(filenameLog())
             .pipe(gulp.dest(config.root.dest))
+            .pipe(filenameLog())
         ;
     });
 
