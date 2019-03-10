@@ -13,7 +13,7 @@ Add this repo as a NPM dependencies with:
 
 ## Tasks
 
-This is the full list of tasks, that we use in our projects. All available tasks are placed in the folder `./gulpflow/` as separate `*.js` files. Since we use the CommonJS modules format, usually, a `filename = task name`.
+This is the full list of tasks, that I could use in a project. All available tasks are placed in the folder `./gulpflow/` as separate `*.js` files. Since we use the CommonJS modules format, usually, a `filename = task name`.
 
 ### Core tasks
 Task name          | Description
@@ -40,7 +40,7 @@ Task name          | Description
 All default config are written in `./gulpflow/config.js`: conditional compilation, sources paths and tasks list.
 
 If you need to configure your own workflow, add a `gulpflow.json` file at the same level as your `package.json`.
-Then, you can customize your project configuration. As an exmple, below, you have an example of the `gulpflow.json` with its defaults values:
+Then, you can customize your project configuration. Below you have an example of the `gulpflow.json` with its defaults values:
 
 ```
 {
@@ -48,36 +48,19 @@ Then, you can customize your project configuration. As an exmple, below, you hav
         "src": "./demo/src",
         "dest": "./demo/build"
     },
-
     "ifs": {
         "doSourcemaps": false,
         "doMinify": true
     },
-
     "sources": {
-        "js": [
-            "/components/**/js/**/[^_]*.js"
-        ],
-        "scss": [
-            "/components/**/scss/**/[^_]*.{sass,scss}"
-        ],
-        "css": [
-            "/components/**/assets/raw/**/[^_]*.css"
-        ],
-        "fonts": [
-            "/components/**/assets/fonts/**/[^_]*.{eot,svg,ttf,woff,woff2}"
-        ],
-        "html": [
-            "/components/**/assets/raw/**/[^_]*.html"
-        ],
-        "images": [
-            "/components/**/assets/images/**/[^_]*.{jpg,jpeg,png,gif,svg}"
-        ],
-        "json": [
-            "/components/**/assets/raw/**/[^_]*.json"
-        ]
+        "js":     "/components/**/js/**/*.js",
+        "scss":   "/components/**/scss/**/*.{sass,scss}",
+        "images": "/components/**/assets/images/**/*.{jpg,jpeg,png,gif,svg}",
+        "fonts":  "/components/**/assets/fonts/**/*.{eot,svg,ttf,woff,woff2}",
+        "html":   "/components/**/assets/raw/**/*.html",
+        "css":    "/components/**/assets/raw/**/*.css",
+        "json":   "/components/**/assets/raw/**/*.json"
     },
-
     "tasks": {
         "watch": ["images", "fonts", "html", "json", "css", "scss", "js"],
         "assets":["images", "fonts", "html", "json", "css"],
