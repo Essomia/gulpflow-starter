@@ -27,8 +27,8 @@ function json() {
                 config.ifs.doMinify,
                 jsonminify({})
             ))
-            .pipe(filenameLog())
             .pipe(gulp.dest(config.root.dest))
+            .pipe(filenameLog())
         ;
     });
 

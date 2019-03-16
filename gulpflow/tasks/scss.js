@@ -46,8 +46,8 @@ function scss() {
                 })
             ))
             .pipe(sourcemaps.write('.'))
-            .pipe(filenameLog())
             .pipe(gulp.dest(config.root.dest))
+            .pipe(filenameLog())
         ;
     });
 
