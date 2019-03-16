@@ -1,6 +1,6 @@
-/**
- * Example scripts - Partial
- **/
+//
+// Example - Partial demo
+//
 
 $(document).ready(function($) {
 
