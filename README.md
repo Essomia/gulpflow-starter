@@ -142,6 +142,8 @@ Thanks to all the amazing authors of theses packages:
 
 
 ## Changes log
+* 1.1.2
+    * Fix: NPM dependencies warning
 * 1.1.1
     * Fix: Correct input path for `watch` tasks
     * Fix: Adjust documentation of the `gulpflow.json`
