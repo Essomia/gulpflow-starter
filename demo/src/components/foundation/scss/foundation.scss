@@ -1,9 +1,9 @@
-/**
- * Dependencies styles
- **/
+//
+// Foundation
+//
 
 @import 'bower_components/foundation-sites/scss/util/util';
-@import 'components/example/scss/settings';
+@import 'components/foundation/scss/settings';
 @import 'bower_components/foundation-sites/scss/foundation';
 
 @include foundation-global-styles();
