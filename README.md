@@ -111,6 +111,7 @@ Thanks to all the amazing authors of theses packages:
 - [gulp-cssnano](http://www.npmjs.com/package/gulp-cssnano) - Minify CSS with cssnano
 - [gulp-htmlmin](http://www.npmjs.com/package/gulp-htmlmin) - Minify HTML
 - [gulp-if](http://www.npmjs.com/package/gulp-if) - A ternary gulp plugin: conditionally control the flow of vinyl objects
+- [gulp-ignore](http://www.npmjs.com/package/gulp-ignore) - Include or exclude gulp files from the stream based on a condition
 - [gulp-imagemin](http://www.npmjs.com/package/gulp-imagemin) - Minify PNG, JPEG, GIF and SVG images with imagemin
 - [gulp-include](http://www.npmjs.com/package/gulp-include) - Other file insertion compilation tools
 - [gulp-jsonminify](http://www.npmjs.com/package/gulp-jsonminify) - Minifies blocks of JSON
@@ -125,6 +126,10 @@ Thanks to all the amazing authors of theses packages:
 
 
 ## Changes log
+* 1.1.3
+    * Fix: Keep watching partial files (ie. `**/_partial.ext`) but dont build them if not included in a main files (ie. `**/main.ext`)
+    * Fix: Example for multiple components
+    * Fix: Be sure to print final file path when tasks is finished
 * 1.1.2
     * Fix: NPM dependencies warning
 * 1.1.1
