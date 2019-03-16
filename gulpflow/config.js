@@ -14,10 +14,6 @@ const merge = require('merge-objects');
 
 let config = {
 
-    // -------------------------------------
-    //   Global
-    // -------------------------------------
-
     root: {
         src: './demo/src',
         dest: './demo/build'
@@ -28,26 +24,22 @@ let config = {
         doMinify: true
     },
 
-
-    // -------------------------------------
-    //   Sources
-    // -------------------------------------
-
+    // Object of {key}:{value}
+    // - {key} is the taskname
+    // - {value} is all path to watch for files
     sources: {
-        js:     '/components/**/js' + '/**/[^_]*.js',
-        scss:   '/components/**/scss' + '/**/[^_]*.{sass,scss}',
-        images: '/components/**/assets/images' + '/**/[^_]*.{jpg,jpeg,png,gif,svg}',
-        fonts:  '/components/**/assets/fonts' + '/**/[^_]*.{eot,svg,ttf,woff,woff2}',
-        html:   '/components/**/assets/raw' + '/**/[^_]*.html',
-        css:    '/components/**/assets/raw' + '/**/[^_]*.css',
-        json:   '/components/**/assets/raw' + '/**/[^_]*.json'
+        js:     '/components/**/js' + '/**/*.js',
+        scss:   '/components/**/scss' + '/**/*.{sass,scss}',
+        images: '/components/**/assets/images' + '/**/*.{jpg,jpeg,png,gif,svg}',
+        fonts:  '/components/**/assets/fonts' + '/**/*.{eot,svg,ttf,woff,woff2}',
+        html:   '/components/**/assets/raw' + '/**/*.html',
+        css:    '/components/**/assets/raw' + '/**/*.css',
+        json:   '/components/**/assets/raw' + '/**/*.json'
     },
 
-
-    // -------------------------------------
-    //   Tasks
-    // -------------------------------------
-
+    // Object of {key}:{value}
+    // - {key} is the taskname
+    // - {value} is an array of tasks to run (see sources for tasks list)
     tasks: {
         watch: ['images', 'fonts', 'html', 'json', 'css', 'scss', 'js'],
         assets:['images', 'fonts', 'html', 'json', 'css'],

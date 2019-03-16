@@ -13,7 +13,7 @@ Add this repo as a NPM dependencies with:
 
 ## Tasks
 
-This is the full list of tasks, that we use in our projects. All available tasks are placed in the folder `./gulpflow/` as separate `*.js` files. Since we use the CommonJS modules format, usually, a `filename = task name`.
+This is the full list of tasks, that I could use in a project. All available tasks are placed in the folder `./gulpflow/` as separate `*.js` files. Since we use the CommonJS modules format, usually, a `filename = task name`.
 
 ### Core tasks
 Task name          | Description
@@ -40,7 +40,7 @@ Task name          | Description
 All default config are written in `./gulpflow/config.js`: conditional compilation, sources paths and tasks list.
 
 If you need to configure your own workflow, add a `gulpflow.json` file at the same level as your `package.json`.
-Then, you can customize your project configuration. As an exmple, below, you have an example of the `gulpflow.json` with its defaults values:
+Then, you can customize your project configuration. Below you have an example of the `gulpflow.json` with its defaults values:
 
 ```
 {
@@ -48,36 +48,19 @@ Then, you can customize your project configuration. As an exmple, below, you hav
         "src": "./demo/src",
         "dest": "./demo/build"
     },
-
     "ifs": {
         "doSourcemaps": false,
         "doMinify": true
     },
-
     "sources": {
-        "js": [
-            "/components/**/js/**/[^_]*.js"
-        ],
-        "scss": [
-            "/components/**/scss/**/[^_]*.{sass,scss}"
-        ],
-        "css": [
-            "/components/**/assets/raw/**/[^_]*.css"
-        ],
-        "fonts": [
-            "/components/**/assets/fonts/**/[^_]*.{eot,svg,ttf,woff,woff2}"
-        ],
-        "html": [
-            "/components/**/assets/raw/**/[^_]*.html"
-        ],
-        "images": [
-            "/components/**/assets/images/**/[^_]*.{jpg,jpeg,png,gif,svg}"
-        ],
-        "json": [
-            "/components/**/assets/raw/**/[^_]*.json"
-        ]
+        "js":     "/components/**/js/**/*.js",
+        "scss":   "/components/**/scss/**/*.{sass,scss}",
+        "images": "/components/**/assets/images/**/*.{jpg,jpeg,png,gif,svg}",
+        "fonts":  "/components/**/assets/fonts/**/*.{eot,svg,ttf,woff,woff2}",
+        "html":   "/components/**/assets/raw/**/*.html",
+        "css":    "/components/**/assets/raw/**/*.css",
+        "json":   "/components/**/assets/raw/**/*.json"
     },
-
     "tasks": {
         "watch": ["images", "fonts", "html", "json", "css", "scss", "js"],
         "assets":["images", "fonts", "html", "json", "css"],
@@ -128,6 +111,7 @@ Thanks to all the amazing authors of theses packages:
 - [gulp-cssnano](http://www.npmjs.com/package/gulp-cssnano) - Minify CSS with cssnano
 - [gulp-htmlmin](http://www.npmjs.com/package/gulp-htmlmin) - Minify HTML
 - [gulp-if](http://www.npmjs.com/package/gulp-if) - A ternary gulp plugin: conditionally control the flow of vinyl objects
+- [gulp-ignore](http://www.npmjs.com/package/gulp-ignore) - Include or exclude gulp files from the stream based on a condition
 - [gulp-imagemin](http://www.npmjs.com/package/gulp-imagemin) - Minify PNG, JPEG, GIF and SVG images with imagemin
 - [gulp-include](http://www.npmjs.com/package/gulp-include) - Other file insertion compilation tools
 - [gulp-jsonminify](http://www.npmjs.com/package/gulp-jsonminify) - Minifies blocks of JSON
@@ -142,6 +126,10 @@ Thanks to all the amazing authors of theses packages:
 
 
 ## Changes log
+* 1.1.3
+    * Fix: Keep watching partial files (ie. `**/_partial.ext`) but dont build them if not included in a main files (ie. `**/main.ext`)
+    * Fix: Example for multiple components
+    * Fix: Be sure to print final file path when tasks is finished
 * 1.1.2
     * Fix: NPM dependencies warning
 * 1.1.1

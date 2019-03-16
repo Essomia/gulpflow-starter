@@ -33,8 +33,8 @@ function images() {
                         { cleanupIDs: true }
                     ]
                 })], { verbose: true }))
-            .pipe(filenameLog())
             .pipe(gulp.dest(config.root.dest))
+            .pipe(filenameLog())
         ;
     });
 
