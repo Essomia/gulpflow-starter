@@ -13,6 +13,7 @@ const gulpif  = require('gulp-if');
 const include = require('gulp-include'); // for //=require files from /www/src/
 const plumber = require('gulp-plumber');
 const uglify  = require('gulp-uglify'); // minifyJS
+const ignore  = require('gulp-ignore');
 
 
 //
@@ -23,6 +24,7 @@ function js() {
 
     gulp.task('js', () => {
         return gulp.src(config.root.src + config.sources.js)
+            .pipe(ignore.exclude('!**/[^_]*.js'))
             .pipe(plumber({ errorHandler: errorLog }))
             .pipe(include({
                 extensions: 'js',
