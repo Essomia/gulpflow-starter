@@ -100,32 +100,11 @@ And will compile files to destination:
 ```
 
 
-## Dependencies
-
-Thanks to all the amazing authors of theses packages:
-- [del](http://www.npmjs.com/package/del) - Delete files and folders using globs
-- [fancy-log](http://www.npmjs.com/package/fancy-log) - Log things, prefixed with a timestamp
-- [gulp](http://www.npmjs.com/package/gulp) - Toolkit to automate your development workflow
-- [gulp-autoprefixer](http://www.npmjs.com/package/gulp-autoprefixer) - Prefix CSS with autoprefixer
-- [gulp-concat](http://www.npmjs.com/package/gulp-concat) - Concat files into one
-- [gulp-cssnano](http://www.npmjs.com/package/gulp-cssnano) - Minify CSS with cssnano
-- [gulp-htmlmin](http://www.npmjs.com/package/gulp-htmlmin) - Minify HTML
-- [gulp-if](http://www.npmjs.com/package/gulp-if) - A ternary gulp plugin: conditionally control the flow of vinyl objects
-- [gulp-ignore](http://www.npmjs.com/package/gulp-ignore) - Include or exclude gulp files from the stream based on a condition
-- [gulp-imagemin](http://www.npmjs.com/package/gulp-imagemin) - Minify PNG, JPEG, GIF and SVG images with imagemin
-- [gulp-include](http://www.npmjs.com/package/gulp-include) - Other file insertion compilation tools
-- [gulp-jsonminify](http://www.npmjs.com/package/gulp-jsonminify) - Minifies blocks of JSON
-- [gulp-load-plugins](http://www.npmjs.com/package/gulp-load-plugins) - Loads gulp plugins from package dependencies
-- [gulp-load-subtasks](http://www.npmjs.com/package/gulp-load-subtasks) - Ability to import sets of related tasks
-- [gulp-plumber](http://www.npmjs.com/package/gulp-plumber) - Prevent pipe breaking caused by errors from gulp plugins
-- [gulp-rename](http://www.npmjs.com/package/gulp-rename) - Plugin to rename files easily
-- [gulp-sass](http://www.npmjs.com/package/gulp-sass) - Plugin to compile sass files
-- [gulp-sourcemaps](http://www.npmjs.com/package/gulp-sourcemaps) - Allow you to see the original source instead of the compiled while debugging
-- [gulp-uglify](http://www.npmjs.com/package/gulp-uglify) - Minify JavaScript with UglifyJS3
-- [merge-objects](http://www.npmjs.com/package/merge-objects) - Merge two objects and concatenate arrays that are values of the same object key
-
-
 ## Changes log
+* 1.1.4
+    * Fix: NPM dependencies warning
+    * Fix: Error from autoprefixer for browsersList
+    * Remove `gulp-cssnano` for `gulp-postcss` and `cssnano` for CSS minify
 * 1.1.3
     * Fix: Keep watching partial files (ie. `**/_partial.ext`) but dont build them if not included in a main files (ie. `**/main.ext`)
     * Fix: Example for multiple components
