@@ -5,15 +5,15 @@
 'use strict';
 
 const config      = require('../config');
-const filenameLog = require('../util/filenameLog');
 const errorLog    = require('../util/errorLog');
+const filenameLog = require('../util/filenameLog');
 
 const gulp    = require('gulp');
 const gulpif  = require('gulp-if');
+const ignore  = require('gulp-ignore');
 const include = require('gulp-include'); // for //=require files from /www/src/
 const plumber = require('gulp-plumber');
-const uglify  = require('gulp-uglify'); // minifyJS
-const ignore  = require('gulp-ignore');
+const uglify  = require('gulp-uglify');  // minifyJS
 
 
 //

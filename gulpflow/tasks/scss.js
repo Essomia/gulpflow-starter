@@ -5,16 +5,16 @@
 'use strict';
 
 const config      = require('../config');
-const filenameLog = require('../util/filenameLog');
 const errorLog    = require('../util/errorLog');
+const filenameLog = require('../util/filenameLog');
 
 const gulp         = require('gulp');
 const gulpif       = require('gulp-if');
 const autoprefixer = require('gulp-autoprefixer');
-const postcss      = require('gulp-postcss'); // minifyCSS
-const cssnano      = require('cssnano');      // minifyCSS
+const cssnano      = require('cssnano');         // minify CSS
 const plumber      = require('gulp-plumber');
-const sass         = require('gulp-sass'); // compileSCSS
+const postcss      = require('gulp-postcss');    // processor CSS
+const sass         = require('gulp-sass');       // compileSCSS
 const sourcemaps   = require('gulp-sourcemaps');
 
 

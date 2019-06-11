@@ -5,8 +5,8 @@
 'use strict';
 
 const config      = require('../config');
-const filenameLog = require('../util/filenameLog');
 const errorLog    = require('../util/errorLog');
+const filenameLog = require('../util/filenameLog');
 
 const gulp     = require('gulp');
 const imagemin = require('gulp-imagemin'); // optimizeIMAGE
