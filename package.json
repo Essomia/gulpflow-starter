@@ -36,8 +36,13 @@
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.0",
     "gulp-sourcemaps": "^2.6.0",
+    "gulp-stylelint": "^9.0.0",
     "gulp-uglify": "^3.0.0",
     "merge-objects": "^1.0.0",
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-order": "^3.0.0",
+    "stylelint-scss": "^3.8.0",
     "through2": "^3.0.1"
   }
 }
