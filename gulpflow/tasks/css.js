@@ -14,7 +14,6 @@ const autoprefixer = require('gulp-autoprefixer');
 const cssnano      = require('cssnano');         // minifyCSS
 const plumber      = require('gulp-plumber');
 const postcss      = require('gulp-postcss');    // minifyCSS
-const sourcemaps   = require('gulp-sourcemaps');
 
 
 //

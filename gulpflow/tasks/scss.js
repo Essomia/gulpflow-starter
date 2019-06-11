@@ -16,6 +16,7 @@ const plumber      = require('gulp-plumber');
 const postcss      = require('gulp-postcss');    // processor CSS
 const sass         = require('gulp-sass');       // compileSCSS
 const sourcemaps   = require('gulp-sourcemaps');
+const stylelint    = require('gulp-stylelint');  // linter CSS
 
 
 //
@@ -31,6 +32,17 @@ function scss() {
                 config.ifs.doSourcemaps,
                 sourcemaps.init()
             ))
+            .pipe(stylelint({
+                configFile: config.root.yaml + config.yaml.stylelint,
+                syntax: 'scss',
+                failAfterError: false,
+                reporters: [
+                    {
+                        formatter: 'string',
+                        console: true
+                    }
+                ]
+            }))
             .pipe(sass({
                 outputStyle: 'expanded',
                 precision: 5,
