@@ -26,6 +26,7 @@ let config = {
     },
 
     yaml: {
+        eslint: '.eslintrc.yaml',
         stylelint: '.stylelintrc.yaml'
     },
 
