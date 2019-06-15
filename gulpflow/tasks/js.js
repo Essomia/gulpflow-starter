@@ -10,6 +10,7 @@ const filenameLog = require('../util/filenameLog');
 
 const gulp    = require('gulp');
 const gulpif  = require('gulp-if');
+const eslint  = require('gulp-eslint');  // linter for JS and JSX
 const ignore  = require('gulp-ignore');
 const include = require('gulp-include'); // for //=require files from /www/src/
 const plumber = require('gulp-plumber');
@@ -24,12 +25,17 @@ function js() {
 
     gulp.task('js', () => {
         return gulp.src(config.root.src + config.sources.js)
-            .pipe(ignore.exclude('!**/[^_]*.js'))
             .pipe(plumber({ errorHandler: errorLog }))
+            .pipe(eslint({
+                configFile: config.root.yaml + config.yaml.eslint
+            }))
+            .pipe(eslint.format('stylish'))
+            .pipe(eslint.failAfterError())
+            .pipe(ignore.exclude('!**/[^_]*.js'))
             .pipe(include({
                 extensions: 'js',
                 includePaths: [ config.root.src ],
-                hardFail: false
+                separateInputs: true
             }))
             .pipe(gulpif(
                 config.ifs.doMinify,
