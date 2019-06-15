@@ -10,6 +10,7 @@ const filenameLog = require('../util/filenameLog');
 
 const gulp    = require('gulp');
 const gulpif  = require('gulp-if');
+const babel   = require('gulp-babel');   // ES6 compiler
 const eslint  = require('gulp-eslint');  // linter for JS and JSX
 const ignore  = require('gulp-ignore');
 const include = require('gulp-include'); // for //=require files from /www/src/
@@ -36,6 +37,15 @@ function js() {
                 extensions: 'js',
                 includePaths: [ config.root.src ],
                 separateInputs: true
+            }))
+            .pipe(babel({
+                presets: [
+                    '@babel/env'
+                ],
+                only: [
+                    config.root.src + config.sources.js
+                ],
+                compact: false
             }))
             .pipe(gulpif(
                 config.ifs.doMinify,
