@@ -1,0 +1,122 @@
+# https://eslint.org/docs/rules/
+extends: 'eslint-config-standard'
+
+root: true
+
+parser: espree
+parserOptions:
+  ecmaVersion: 2019
+  sourceType: script
+  ecmaFeatures:
+    globalReturn: false
+    impliedStrict: false
+    jsx: false
+
+env:
+  browser: true
+  node: true
+  es6: true
+  jquery: true
+
+globals:
+  global: readonly
+  require: readonly
+  Foundation: readonly
+
+# Rules
+rules:
+
+  #--------------------
+  #-- Eslint config standard
+  #--------------------
+
+  # Possible Errors
+  no-console: [warn]
+  no-debugger: [warn]
+  no-empty: [error, { allowEmptyCatch: false }]
+  no-inner-declarations: [error, both]
+  # Best Practices
+  class-methods-use-this: [off]
+  dot-notation: [error, { allowKeywords: true }]
+  max-classes-per-file: [off]
+  no-alert: [warn]
+  no-invalid-this: [off]
+  no-multi-spaces: [off]
+  no-redeclare: [error, { builtinGlobals: true }]
+  no-return-assign: [error, always]
+  no-self-assign: [error, { props: true }]
+  # Strict Mode
+  # Variables
+  no-restricted-globals: [error, window]
+  no-undefined: [off]
+  # Node.js and CommonJS
+  # Stylistic Issues
+  camelcase: [error, { properties: always }]
+  capitalized-comments: [off]
+  computed-property-spacing: [error, never]
+  consistent-this: [error, self]
+  func-names: [error, never]
+  func-style: [error, expression]
+  function-paren-newline: [error, never]
+  implicit-arrow-linebreak: [off]
+  indent:
+    - error
+    - tab
+    - SwitchCase: 1
+      VariableDeclarator: first
+      outerIIFEBody: 1
+      MemberExpression: 1
+      FunctionDeclaration:
+        parameters: 1
+        body: 1
+      FunctionExpression:
+        parameters: 1
+        body: 1
+      CallExpression:
+        arguments: 1
+      ArrayExpression: 1
+      ImportDeclaration: 1
+      ObjectExpression: 1
+      ignoreComments: true
+  jsx-quotes: [error, prefer-double]
+  key-spacing:
+    - error
+    - singleLine:
+        beforeColon: false
+        afterColon: true
+      multiLine:
+        beforeColon: false
+        afterColon: true
+        mode: minimum
+  linebreak-style: [error, unix]
+  new-cap: [error, { newIsCap: true, capIsNew: true, properties: false }]
+  no-multiple-empty-lines: [error, { max: 10, maxEOF: 1, maxBOF: 0 }]
+  no-tabs: [off] # Cuz of comments
+  no-trailing-spaces: [error, { skipBlankLines: false }]
+  object-property-newline: [off]
+  one-var-declaration-per-line: [error, always]
+  operator-assignment: [error, always]
+  padded-blocks: [error, { classes: always, switches: always }]
+  prefer-object-spread: [off]
+  semi: [error, always]
+  semi-spacing: [error, { before: false, after: true }]
+  semi-style: [off]
+  sort-keys: [off]
+  sort-vars: [off]
+  space-before-function-paren: [error, { anonymous: never, named: never, asyncArrow: always }]
+  spaced-comment:
+    - error
+    - always
+    - exceptions: ['-', '*']
+      markers: ['=', '--']
+      block:
+        balanced: true
+  switch-colon-spacing: [error, { before: false, after: true }]
+
+  # ECMAScript 6
+  arrow-body-style: [error, always]
+  arrow-parens: [error, always]
+  object-shorthand: [error, consistent]
+  prefer-const: [error, { destructuring: any, ignoreReadBeforeAssign: false }]
+  prefer-destructuring: [error, { array: true, object: true}, { enforceForRenamedProperties: false }]
+  sort-imports: [off]

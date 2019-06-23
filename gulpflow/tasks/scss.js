@@ -5,17 +5,18 @@
 'use strict';
 
 const config      = require('../config');
-const filenameLog = require('../util/filenameLog');
 const errorLog    = require('../util/errorLog');
+const filenameLog = require('../util/filenameLog');
 
 const gulp         = require('gulp');
 const gulpif       = require('gulp-if');
 const autoprefixer = require('gulp-autoprefixer');
-const postcss      = require('gulp-postcss'); // minifyCSS
-const cssnano      = require('cssnano');      // minifyCSS
+const cssnano      = require('cssnano');         // minify CSS
 const plumber      = require('gulp-plumber');
-const sass         = require('gulp-sass'); // compileSCSS
+const postcss      = require('gulp-postcss');    // processor CSS
+const sass         = require('gulp-sass');       // compileSCSS
 const sourcemaps   = require('gulp-sourcemaps');
+const stylelint    = require('gulp-stylelint');  // linter CSS
 
 
 //
@@ -31,6 +32,17 @@ function scss() {
                 config.ifs.doSourcemaps,
                 sourcemaps.init()
             ))
+            .pipe(stylelint({
+                configFile: config.root.yaml + config.yaml.stylelint,
+                syntax: 'scss',
+                failAfterError: false,
+                reporters: [
+                    {
+                        formatter: 'string',
+                        console: true
+                    }
+                ]
+            }))
             .pipe(sass({
                 outputStyle: 'expanded',
                 precision: 5,

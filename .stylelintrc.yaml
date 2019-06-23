@@ -1,0 +1,394 @@
+# https://stylelint.io/user-guide/rules/
+extends: 'stylelint-config-standard'
+
+defaultSeverity: error
+
+plugins:
+  - stylelint-scss
+  - stylelint-order
+
+rules:
+
+  #--------------------
+  #-- Stylelint config standard
+  #--------------------
+
+  # Color
+  color-hex-case: lower
+  color-hex-length: long
+  color-named: never
+  # Font family
+  font-family-name-quotes: always-where-recommended
+  # Font weight
+  font-weight-notation: numeric
+  # Function
+  function-url-quotes: always
+  # Number
+  number-leading-zero: never
+  # String
+  string-quotes: single
+  # Unit
+  unit-blacklist: null  # via unit-whitelist
+  unit-whitelist:
+    - rem
+    - em
+    - '%'
+    - vh
+    - vw
+    - ms
+    - s
+    - deg
+  # Value
+  value-no-vendor-prefix: true
+  # Property
+  property-no-vendor-prefix: true
+  # Declaration
+  declaration-colon-space-after: always
+  declaration-colon-space-before: never
+  declaration-no-important: true
+  # Declaration-block
+  declaration-block-trailing-semicolon: always
+  # Selector
+  selector-attribute-brackets-space-inside: never
+  selector-attribute-operator-space-after: never
+  selector-attribute-operator-space-before: never
+  selector-attribute-quotes: always
+  selector-combinator-space-after: always
+  selector-no-vendor-prefix: true
+  selector-pseudo-class-parentheses-space-inside: never
+  selector-pseudo-element-colon-notation: double
+  # Rule
+  rule-empty-line-before: always-multi-line
+  # Media feature
+  media-feature-colon-space-after: always
+  media-feature-colon-space-before: never
+  media-feature-name-no-vendor-prefix: true
+  media-feature-parentheses-space-inside: never
+  media-feature-range-operator-space-after: always
+  media-feature-range-operator-space-before: always
+  # At rule
+  at-rule-no-unknown: null  # via scss/at-rule-no-unknown
+  at-rule-no-vendor-prefix: true
+  # Comment
+  comment-whitespace-inside: always
+  # General / Sheet
+  indentation: tab
+  no-duplicate-selectors: true
+
+
+
+  #--------------------
+  #-- Stylelint SCSS
+  #-- https://github.com/kristerkari/stylelint-scss
+  #--------------------
+
+  # @-else
+  scss/at-else-empty-line-before: never
+  scss/at-else-if-parentheses-space-before: always
+  # @-extend
+  scss/at-extend-no-missing-placeholder: true
+  # @-function
+  scss/at-function-named-arguments: null
+  scss/at-function-parentheses-space-before: never
+  scss/at-function-pattern:
+    - ^([a-z][a-z0-9]*)(-[a-z0-9]+)*$
+    - message: Function name must be kebab-case (scss/at-function-pattern)
+  # @-import
+  scss/at-import-no-partial-leading-underscore: true
+  scss/at-import-partial-extension-blacklist:
+    - less
+  scss/at-import-partial-extension-whitelist:
+    - scss
+    - css
+  # @-mixin
+  scss/at-mixin-argumentless-call-parentheses: always
+  scss/at-mixin-parentheses-space-before: never
+  scss/at-mixin-pattern:
+    - ^([a-z][a-z0-9]*)(-[a-z0-9]+)*$
+    - message: Mixin name must be kebab-case (scss/at-mixin-pattern)
+  # @-rule
+  scss/at-rule-no-unknown: true
+  # $-variable
+  scss/dollar-variable-colon-space-after: at-least-one-space
+  scss/dollar-variable-colon-space-before: never
+  scss/dollar-variable-no-missing-interpolation: true
+  scss/dollar-variable-pattern:
+    - ^([a-z][a-z0-9]*)(-[a-z0-9]+)*$
+    - message: Variable name must be kebab-case (scss/dollar-variable-pattern)
+  # Declaration
+  scss/declaration-nested-properties: never
+  # Media feature
+  scss/media-feature-value-dollar-variable: always
+  # Operator
+  scss/operator-no-newline-after: true
+  scss/operator-no-newline-before: true
+  scss/operator-no-unspaced: true
+  # Selector
+  scss/selector-no-redundant-nesting-selector: true
+  # General / Sheet
+  scss/no-duplicate-dollar-variables:
+    - true
+    - ignoreInside: at-rule
+
+
+
+  #--------------------
+  #-- Stylelint Order
+  #-- https://github.com/hudochenkov/stylelint-order
+  #-- https://www.w3.org/Style/CSS/all-properties.en.html (excluding FPWD)
+  #--------------------
+
+  order/order:
+    -
+      # $variables
+      - dollar-variables
+      # @include
+      - type:     at-rule
+        name:     include
+        hasBlock: false
+      # @include {}
+      - type:     at-rule
+        name:     include
+        hasBlock: true
+      # properties
+      - declarations
+      # Current &,
+      - type:     rule
+        selector: ^&,
+      # &::pseudo-elements
+      - type:     rule
+        selector: ^&::[\w-]+,?
+      # &:pseudo-classes
+      - type:     rule
+        selector: ^&:[\w-]+,?
+      - type:     rule
+        selector: ^#{\$nwayo-hover-selector}$
+      # Parent selection &
+      - type:     rule
+        selector: '&$'
+      # Nested
+      - rules
+    - unspecified: ignore
+  order/properties-order:
+    -
+      - groupName: 'Content'
+        properties:
+          - content
+          - quotes
+      - groupName: 'Position'
+        properties:
+          - position
+          - top
+          - right
+          - bottom
+          - left
+          - z-index
+      - groupName: 'Element'
+        properties:
+          - appearance
+          - display
+          - float
+          - clear
+          - overflow
+          - overflow-x
+          - overflow-y
+          - overflow-style
+          - overflow-wrap
+          - overflow-scrolling  # Not W3C
+          - vertical-align
+      - groupName: 'Visibility'
+        properties:
+          - clip
+          - clip-path
+          - clip-rule
+          - visibility
+          - opacity
+      - groupName: 'Flex'
+        properties:
+          - flex
+          - flex-grow
+          - flex-shrink
+          - flex-basis
+          - flex-flow
+          - flex-direction
+          - flex-wrap
+          - justify-items
+          - justify-content
+          - justify-self
+          - align-items
+          - align-content
+          - align-self
+          - order
+      - groupName: 'List'
+        properties:
+          - list-style
+          - list-style-type
+          - list-style-position
+          - list-style-image
+          - counter-reset
+          - counter-set
+          - counter-increment
+      - groupName: 'Dimension'
+        properties:
+          - box-sizing
+          - margin
+          - margin-top
+          - margin-right
+          - margin-bottom
+          - margin-left
+          - padding
+          - padding-top
+          - padding-right
+          - padding-bottom
+          - padding-left
+          - width
+          - min-width
+          - max-width
+          - height
+          - min-height
+          - max-height
+      - groupName: 'Border'
+        properties:
+          - border
+          - border-top
+          - border-right
+          - border-bottom
+          - border-left
+          - border-width
+          - border-top-width
+          - border-right-width
+          - border-bottom-width
+          - border-left-width
+          - border-style
+          - border-top-style
+          - border-right-style
+          - border-bottom-style
+          - border-left-style
+          - border-color
+          - border-top-color
+          - border-right-color
+          - border-bottom-color
+          - border-left-color
+          - border-radius
+          - border-top-left-radius
+          - border-top-right-radius
+          - border-bottom-left-radius
+          - border-bottom-right-radius
+          - border-image
+          - border-image-source
+          - border-image-slice
+          - border-image-width
+          - border-image-outset
+          - border-image-repeat
+          - outline
+          - outline-width
+          - outline-style
+          - outline-color
+          - outline-offset
+          - box-shadow
+      - groupName: 'Background'
+        properties:
+          - background
+          - background-color
+          - background-image
+          - background-position
+          - background-size
+          - background-repeat
+          - background-origin
+          - background-clip
+          - background-attachment
+          - background-blend-mode
+      - groupName: 'Text'
+        properties:
+          - color
+          - font
+          - font-family
+          - font-size
+          - font-size-adjust
+          - font-weight
+          - font-style
+          - font-kerning
+          - font-stretch
+          - font-variant
+          - font-variant-alternates
+          - font-variant-caps
+          - font-variant-east-asian
+          - font-variant-ligatures
+          - font-variant-numeric
+          - font-variant-position
+          - font-variation-settings
+          - font-feature-settings
+          - font-language-override
+          - text-align
+          - text-align-all
+          - text-align-last
+          - text-justify
+          - text-indent
+          - text-transform
+          - text-decoration
+          - text-decoration-line
+          - text-decoration-style
+          - text-decoration-color
+          - text-decoration-skip
+          - text-underline-position
+          - text-shadow
+          - text-combine-upright
+          - text-orientation
+          - text-overflow
+          - text-emphasis
+          - text-emphasis-style
+          - text-emphasis-color
+          - text-emphasis-position
+          - line-height
+          - direction
+          - letter-spacing
+          - tab-size
+          - white-space
+          - word-break
+          - word-spacing
+          - word-wrap
+      - groupName: 'Table'
+        properties:
+          - caption-side
+          - table-layout
+          - border-collapse
+          - border-spacing
+          - empty-cells
+          - columns
+          - column-gap
+          - column-fill
+          - column-rule
+          - column-span
+          - column-count
+          - column-width
+      - groupName: 'Transform'
+        properties:
+          - filter
+          - transform
+          - transform-origin
+          - transform-box
+      - groupName: 'Transition'
+        properties:
+          - transition
+          - transition-property
+          - transition-duration
+          - transition-timing-function
+          - transition-delay
+      - groupName: 'Animation'
+        properties:
+          - animation
+          - animation-name
+          - animation-duration
+          - animation-timing-function
+          - animation-delay
+          - animation-iteration-count
+          - animation-direction
+          - animation-fill-mode
+          - animation-play-state
+      - groupName: 'Cursor'
+        properties:
+          - cursor
+          - user-select
+
+    - unspecified: bottomAlphabetical
+  order/properties-alphabetical-order: null

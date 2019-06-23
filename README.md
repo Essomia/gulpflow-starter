@@ -64,7 +64,7 @@ Then, you can customize your project configuration. Below you have an example of
     "tasks": {
         "watch": ["images", "fonts", "html", "json", "css", "scss", "js"],
         "assets":["images", "fonts", "html", "json", "css"],
-        "prod":  ["images", "fonts", "html", "json", "css", "scss", "js"]
+        "build": ["images", "fonts", "html", "json", "css", "scss", "js"]
     }
 }
 ```
@@ -101,6 +101,10 @@ And will compile files to destination:
 
 
 ## Changes log
+* 1.2.0
+    * Add style linter to SCSS tasks
+    * Add javascript linter to JS tasks with babel to compile ES6+
+    * Rename prod config node for build to match task name
 * 1.1.4
     * Fix: NPM dependencies warning
     * Fix: Error from autoprefixer for browsersList

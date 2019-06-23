@@ -15,6 +15,7 @@ const merge = require('merge-objects');
 let config = {
 
     root: {
+        yaml: './',
         src: './demo/src',
         dest: './demo/build'
     },
@@ -22,6 +23,11 @@ let config = {
     ifs: {
         doSourcemaps: false,
         doMinify: true
+    },
+
+    yaml: {
+        eslint: '.eslintrc.yaml',
+        stylelint: '.stylelintrc.yaml'
     },
 
     // Object of {key}:{value}
@@ -43,7 +49,7 @@ let config = {
     tasks: {
         watch: ['images', 'fonts', 'html', 'json', 'css', 'scss', 'js'],
         assets:['images', 'fonts', 'html', 'json', 'css'],
-        prod:  ['images', 'fonts', 'html', 'json', 'css', 'scss', 'js']
+        build: ['images', 'fonts', 'html', 'json', 'css', 'scss', 'js']
     }
 
 };
@@ -59,6 +65,7 @@ if (fs.existsSync('./gulpflow.json')) {
     // Remove default values if key in projectConfig ...
     if (projectConfig.root) { config.root = {}; }
     if (projectConfig.ifs) { config.ifs = {}; }
+    if (projectConfig.yaml) { config.yaml = {}; }
     if (projectConfig.sources) { config.sources = {}; }
     if (projectConfig.tasks) { config.tasks = {}; }
 
