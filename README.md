@@ -64,7 +64,7 @@ Then, you can customize your project configuration. Below you have an example of
     "tasks": {
         "watch": ["images", "fonts", "html", "json", "css", "scss", "js"],
         "assets":["images", "fonts", "html", "json", "css"],
-        "prod":  ["images", "fonts", "html", "json", "css", "scss", "js"]
+        "build": ["images", "fonts", "html", "json", "css", "scss", "js"]
     }
 }
 ```
