@@ -14,7 +14,7 @@ const gulp    = require('gulp');
 
 function build() {
 
-    return gulp.task('build', gulp.series(config.tasks.prod));
+    return gulp.task('build', gulp.series(config.tasks.build));
 
 }
 
