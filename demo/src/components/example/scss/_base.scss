@@ -1,0 +1,22 @@
+//
+// Example - Partial demo
+//
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: $site-bg-color;
+	color: $site-text-color;
+	font-family: 'Roboto Regular', sans-serif;
+	font-size: 1rem;
+	text-align: center;
+	line-height: 1.6;
+
+	h1 {
+		display: block;
+		color: $site-text-color;
+		text-align: center;
+	}
+}
