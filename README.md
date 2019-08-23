@@ -101,6 +101,8 @@ And will compile files to destination:
 
 
 ## Changes log
+* 1.2.1
+    * Fix: NPM dependencies warning
 * 1.2.0
     * Add style linter to SCSS tasks
     * Add javascript linter to JS tasks with babel to compile ES6+
