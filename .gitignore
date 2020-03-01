@@ -1,4 +1,3 @@
-bower_components/
-build/
+example/
 node_modules/
 *.log
