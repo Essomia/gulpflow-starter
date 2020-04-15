@@ -56,8 +56,8 @@ All default config are written in `./gulpflow/config.js`: conditional compilatio
 ```
 {
     "root": {
-        "src": "./demo/src",
-        "dest": "./demo/build"
+        "src": "./example/src",
+        "dest": "./example/app"
     },
     "ifs": {
         "doSourcemaps": false,
@@ -85,7 +85,7 @@ All default config are written in `./gulpflow/config.js`: conditional compilatio
 The default supported sources folders structures is:
 
 ```
-/demo/src
+/example/src
     /components
         /<component_name>
             /assets
@@ -99,7 +99,7 @@ The default supported sources folders structures is:
 And that will be compiled to destination:
 
 ```
-/demo/build
+/example/app
     /<component_name>
         /assets
             /fonts

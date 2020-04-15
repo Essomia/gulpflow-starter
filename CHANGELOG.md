@@ -5,6 +5,8 @@
 - Add `.editorconfig` and `.prettierrc` files for coding standard/formating.
 - Create a `CHANGELOG.md` file to separate release notes from `README.md`.
 - Improve documentation in `README.md` documentation for the project.
+- Rename `./demo/` to be `./example/` and adjust config.
+- Move from bower to npm for `./example/` folder.
 
 ---
 
