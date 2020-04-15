@@ -2,16 +2,18 @@
 
 ## Unreleased
 
-- Add `.editorconfig` and `.prettierrc` files for coding standard/formating.
-- Create a `CHANGELOG.md` file to separate release notes from `README.md`.
-- Improve documentation in `README.md` documentation for the project.
-- Rename `./demo/` to be `./example/` and adjust config.
-- Move from bower to npm for `./example/` folder.
-- Fix error on images build and adjust task files.
-
 ---
 
 ## Releases
+
+### [1.2.3](https://github.com/Essomia/frontend-boilerplate/compare/1.2.2...1.2.3)
+
+- Add `.editorconfig` and `.prettierrc` files for coding standard/formating.
+- Create a `CHANGELOG.md` file to separate release notes from `README.md`.
+- Rename `./demo/` folder to be `./example/` and adjust related config.
+- Move from bower to npm for `./example/` folder.
+- Adjust task files to respect new standard.
+- _Fix_: Error on _images_ task build since we did update dependencies.
 
 ### [1.2.2](https://github.com/Essomia/frontend-boilerplate/compare/1.2.1...1.2.2)
 
