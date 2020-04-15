@@ -1,48 +1,38 @@
-// ------------------------------
-// -- ./tasks/images.js
-// ------------------------------
+const gulp = require('gulp');
+const imagemin = require('gulp-imagemin'); // optimizeIMAGE
+const plumber = require('gulp-plumber');
 
-'use strict';
-
-const config      = require('../config');
-const errorLog    = require('../util/errorLog');
+const config = require('../config');
+const errorLog = require('../util/errorLog');
 const filenameLog = require('../util/filenameLog');
 
-const gulp     = require('gulp');
-const imagemin = require('gulp-imagemin'); // optimizeIMAGE
-const plumber  = require('gulp-plumber');
-
-
-//
-// Defined
-//
-
-function images() {
-
+const images = () => {
     gulp.task('images', () => {
-        return gulp.src(config.root.src + config.sources.images)
+        return gulp
+            .src(config.root.src + config.sources.images)
             .pipe(plumber({ errorHandler: errorLog }))
-            .pipe(imagemin([
-                imagemin.jpegtran({ progressive: true }),
-                imagemin.optipng({ optimizationLevel: 5 }),
-                imagemin.gifsicle({ interlaced: true }),
-                imagemin.svgo({
-                    plugins: [
-                        { removeViewBox: true },
-                        { removeUnknownsAndDefaults: true },
-                        { cleanupIDs: true }
-                    ]
-                })], { verbose: true }))
+            .pipe(
+                imagemin(
+                    [
+                        imagemin.optipng({ optimizationLevel: 5 }),
+                        imagemin.gifsicle({ interlaced: true }),
+                        imagemin.mozjpeg({ quality: 75, progressive: true }),
+                        imagemin.svgo({
+                            plugins: [
+                                { removeViewBox: true },
+                                { removeUnknownsAndDefaults: true },
+                                { cleanupIDs: true },
+                            ],
+                        }),
+                    ],
+                    {
+                        verbose: true,
+                    }
+                )
+            )
             .pipe(gulp.dest(config.root.dest))
-            .pipe(filenameLog())
-        ;
+            .pipe(filenameLog());
     });
-
-}
-
-
-//
-// Exports
-//
+};
 
 module.exports = images;

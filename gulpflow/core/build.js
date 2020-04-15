@@ -1,26 +1,9 @@
-// ------------------------------
-// -- ./core/build.js
-// ------------------------------
+const gulp = require('gulp');
 
-'use strict';
+const config = require('../config');
 
-const config  = require('../config');
-const gulp    = require('gulp');
-
-
-//
-// Defined
-//
-
-function build() {
-
+const build = () => {
     return gulp.task('build', gulp.series(config.tasks.build));
-
-}
-
-
-//
-// Exports
-//
+};
 
 module.exports = build;
