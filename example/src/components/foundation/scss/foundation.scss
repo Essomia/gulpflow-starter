@@ -1,12 +1,12 @@
-//
-// Foundation
-//
+/**
+ * Foundation
+ */
 
 // Settings
-@import 'bower_components/foundation-sites/scss/util/util';
+@import 'node_modules/foundation-sites/scss/util/util';
 @import 'components/foundation/scss/functions';
 @import 'components/foundation/scss/settings';
 
 // Grid
-@import 'bower_components/foundation-sites/scss/foundation';
+@import 'node_modules/foundation-sites/scss/foundation';
 @import 'components/foundation/scss/imports';
