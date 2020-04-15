@@ -1,6 +1,6 @@
-//
-// Example - Animation
-//
+/**
+ * Example - Animation
+ */
 
 (() => {
 	'use strict';

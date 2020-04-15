@@ -1,6 +1,6 @@
-//
-// Example - Class
-//
+/**
+ * Example - Class
+ */
 
 (() => {
 	'use strict';

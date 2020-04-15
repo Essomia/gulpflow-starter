@@ -1,36 +1,18 @@
-// ------------------------------
-// -- ./tasks/fonts.js
-// ------------------------------
-
-'use strict';
-
-const config      = require('../config');
-const errorLog    = require('../util/errorLog');
-const filenameLog = require('../util/filenameLog');
-
-const gulp    = require('gulp');
+const gulp = require('gulp');
 const plumber = require('gulp-plumber');
 
+const config = require('../config');
+const errorLog = require('../util/errorLog');
+const filenameLog = require('../util/filenameLog');
 
-//
-// Defined
-//
-
-function fonts() {
-
+const fonts = () => {
     gulp.task('fonts', () => {
-        return gulp.src(config.root.src + config.sources.fonts)
+        return gulp
+            .src(config.root.src + config.sources.fonts)
             .pipe(plumber({ errorHandler: errorLog }))
             .pipe(gulp.dest(config.root.dest))
-            .pipe(filenameLog())
-        ;
+            .pipe(filenameLog());
     });
-
-}
-
-
-//
-// Exports
-//
+};
 
 module.exports = fonts;
