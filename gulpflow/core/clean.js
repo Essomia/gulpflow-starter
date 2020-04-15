@@ -1,29 +1,12 @@
-// ------------------------------
-// -- ./core/clean.js
-// ------------------------------
+const del = require('del');
+const gulp = require('gulp');
 
-'use strict';
+const config = require('../config');
 
-const config  = require('../config');
-const gulp    = require('gulp');
-const del     = require('del');
-
-
-//
-// Defined
-//
-
-function clean() {
-
+const clean = () => {
     gulp.task('clean', () => {
-        return del([ config.root.dest ]);
+        return del([config.root.dest]);
     });
-
-}
-
-
-//
-// Exports
-//
+};
 
 module.exports = clean;

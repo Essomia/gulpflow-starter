@@ -7,6 +7,7 @@
 - Improve documentation in `README.md` documentation for the project.
 - Rename `./demo/` to be `./example/` and adjust config.
 - Move from bower to npm for `./example/` folder.
+- Fix error on images build and adjust task files.
 
 ---
 
