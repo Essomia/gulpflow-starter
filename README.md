@@ -101,6 +101,8 @@ And will compile files to destination:
 
 
 ## Changes log
+* 1.2.2
+    * Fix: NPM dependencies warning
 * 1.2.1
     * Fix: NPM dependencies warning
 * 1.2.0
