@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Adjust `.eslintrc` and `.stylelintrc` rules to be less restrictive.
+- Base `.eslintrc` rules on _airbnb-base_ javascript config.
+
 ---
 
 ## Releases
