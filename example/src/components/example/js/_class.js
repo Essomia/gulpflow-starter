@@ -3,30 +3,26 @@
  */
 
 (() => {
-	'use strict';
+    const application = {};
+    const value = 'example';
 
-	const application = {};
-	const value = 'example';
+    application.action = () => {
 
-	application.action = () => {
+        /* ... */
 
-		/* ... */
+    };
 
-	};
+    class ExampleClass {
+        get value() {
+            return value;
+        }
 
-	class ExampleClass {
+        doAction(options = {}) {
+            if (options.doAction) {
+                application.action();
+            }
+        }
+    }
 
-		get value() {
-			return value;
-		}
-
-		doAction(options = {}) {
-			if (options.doAction) {
-				application.action();
-			}
-		}
-
-	}
-
-	application.exampleclass = new ExampleClass();
+    application.exampleclass = new ExampleClass();
 })();
