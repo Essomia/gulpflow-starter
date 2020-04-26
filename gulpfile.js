@@ -10,36 +10,36 @@ const plugins = require('gulp-load-plugins')();
 
 const config = {
     root: {
-        yaml: './',
         src: './example/src',
         dest: './example/app'
     },
     ifs: {
-        doSourcemaps: false,
-        doMinify: true
+        doLinter: false,
+        doMinify: false,
+        doSourcemaps: false
     },
-    yaml: {
-        eslint: '.eslintrc.yaml',
-        stylelint: '.stylelintrc.yaml'
+    linters: {
+        eslint: `${__dirname}/.eslintrc.yaml`,
+        stylelint: `${__dirname}/.stylelintrc.yaml`
     },
     // Object of {key}:{value}
-    // - {key} is the taskname
-    // - {value} is all path to watch for files
+    // - {key} is the task name (from `./gulpflow/tasks/`).
+    // - {value} is an string|array of all path to watch for files.
     sources: {
-        js: '/components/**/js' + '/**/*.js',
-        scss: '/components/**/scss' + '/**/*.{sass,scss}',
-        images: '/components/**/assets/images' + '/**/*.{jpg,jpeg,png,gif,svg}',
-        fonts: '/components/**/assets/fonts' + '/**/*.{eot,svg,ttf,woff,woff2}',
-        html: '/components/**/assets/raw' + '/**/*.html',
-        css: '/components/**/assets/raw' + '/**/*.css',
-        json: '/components/**/assets/raw' + '/**/*.json'
+        css: '/components/**/assets/raw/**/*.css',
+        fonts: '/components/**/assets/fonts/**/*.{eot,svg,ttf,woff,woff2}',
+        html: '/components/**/assets/raw/**/*.html',
+        images: '/components/**/assets/images/**/*.{jpg,jpeg,png,gif,svg}',
+        js: '/components/**/js/**/*.js',
+        json: '/components/**/assets/raw/**/*.json',
+        scss: '/components/**/scss/**/*.{sass,scss}'
     },
     // Object of {key}:{value}
-    // - {key} is the taskname
-    // - {value} is an array of tasks to run (see sources for tasks list)
+    // - {key} is the task name (from `./gulpflow/core/`).
+    // - {value} is an array of all task name (from `./gulpflow/tasks/`) to run.
     tasks: {
-        watch: ['images', 'fonts', 'html', 'json', 'css', 'scss', 'js'],
-        build: ['images', 'fonts', 'html', 'json', 'css', 'scss', 'js']
+        watch: ['js', 'scss'],
+        build: ['html', 'css', 'json', 'fonts', 'images', 'js', 'scss']
     }
 };
 
