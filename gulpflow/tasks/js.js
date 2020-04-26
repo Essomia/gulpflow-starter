@@ -4,11 +4,24 @@ const js = (gulp, $, config) => {
     gulp.task('js', () => gulp
         .src(config.root.src + config.sources.js)
         .pipe($.plumber())
-        .pipe($.eslint({
-            configFile: config.root.yaml + config.yaml.eslint
-        }))
-        .pipe($.eslint.format('stylish'))
-        .pipe($.eslint.failAfterError())
+        .pipe($.if(
+            config.ifs.doSourcemaps,
+            $.sourcemaps.init()
+        ))
+        .pipe($.if(
+            config.ifs.doLinter,
+            $.eslint({
+                configFile: config.linters.eslint
+            })
+        ))
+        .pipe($.if(
+            config.ifs.doLinter,
+            $.eslint.format('stylish')
+        ))
+        .pipe($.if(
+            config.ifs.doLinter,
+            $.eslint.failAfterError()
+        ))
         .pipe($.ignore.exclude('!**/[^_]*.js'))
         .pipe($.include({
             extensions: 'js',
@@ -23,6 +36,10 @@ const js = (gulp, $, config) => {
         .pipe($.if(
             config.ifs.doMinify,
             $.uglify()
+        ))
+        .pipe($.if(
+            config.ifs.doSourcemaps,
+            $.sourcemaps.write('.')
         ))
         .pipe(gulp.dest(config.root.dest))
         .pipe(filenameLog()));

@@ -9,17 +9,20 @@ const scss = (gulp, $, config) => {
             config.ifs.doSourcemaps,
             $.sourcemaps.init()
         ))
-        .pipe($.stylelint({
-            configFile: config.root.yaml + config.yaml.stylelint,
-            syntax: 'scss',
-            failAfterError: false,
-            reporters: [
-                {
-                    formatter: 'string',
-                    console: true
-                }
-            ]
-        }))
+        .pipe($.if(
+            config.ifs.doLinter,
+            $.stylelint({
+                configFile: config.linters.stylelint,
+                syntax: 'scss',
+                failAfterError: false,
+                reporters: [
+                    {
+                        formatter: 'string',
+                        console: true
+                    }
+                ]
+            })
+        ))
         .pipe($.sass({
             outputStyle: 'expanded',
             precision: 5,
@@ -33,7 +36,10 @@ const scss = (gulp, $, config) => {
             config.ifs.doMinify,
             $.postcss([cssnano()])
         ))
-        .pipe($.sourcemaps.write('.'))
+        .pipe($.if(
+            config.ifs.doSourcemaps,
+            $.sourcemaps.write('.')
+        ))
         .pipe(gulp.dest(config.root.dest))
         .pipe(filenameLog()));
 };
