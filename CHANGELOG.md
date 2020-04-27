@@ -4,6 +4,10 @@
 
 - Adjust `.eslintrc` and `.stylelintrc` rules to be less restrictive.
 - Base `.eslintrc` rules on _airbnb-base_ javascript config.
+- Add conditional flag for linters in tasks.
+- Use `gulp-load-subtasks` to pass modules dependencies and configuration in tasks.
+- Create an `index.js` file to manage project configuration and run tasks instead of `gulpfile.js`.
+- Improve documentation on how to use the boilerplate.
 
 ---
 
