@@ -2,83 +2,122 @@
 
 Front-end boilerplate is a basic starter kit for gulp development that use scss, babel, linter and images optimisations.
 
+## Dependencies
+
+Make sure the following are installed first:
+
+- Node.Js - `brew install node`
+- Gulp Command Line Utility - `npm install -g gulp-cli`
+
 ## Installation
 
-### Dependencies
-
-Make sure these are installed first.
-
-- Node.Js
-- Gulp Command Line Utility
+Add this repository as one of your project dependencies.
 
 ```
-brew install node
-npm install -g gulp-cli
+npm install git://github.com/essomia/frontend-boilerplate.git
 ```
 
-### How to use it ?
+Set your project to use the boilerplate within the `gulpfile.js` file.
 
-Add this repo as a NPM dependencies with:
+```js
+const boilerplate = require('@essomia/frontend-boilerplate')();
+```
 
-1. `npm install git://github.com/essomia/frontend-boilerplate.git` - to add this repo as your project dependency.
-2. Set you project configuration with a `gulpflow.json` file at the same level as you `package.json` to set your project configuration.
-3. Run `gulp build` to build entire project from sources folder to destination folder with your project configuration.
+Now, you can run `gulp build` to build project from sources folder to destination folder **with the default configuration**.
+
+## Configuration
+
+All default configuration are written in `./gulpflow/index.js`: conditional compilation, sources paths and tasks list.
+
+If you need to configure your own workflow, adjust your `gulpfile.js` file and pass your custom configuration to the boilerplate.
+
+Below you have an example of custom configuration:
+
+```js
+const customConfig = {
+    /**
+    * Main path for sources and destination folder.
+    */
+    root: {
+        src: './src',
+        dest: './build'
+    },
+
+    /**
+    * Conditional configuration for project.
+    */
+    ifs: {
+        doLinter: true,
+        doMinify: true,
+        doSourcemaps: false
+    },
+
+    /**
+    * Main linters files.
+    */
+    linters: {
+        eslint: `./.eslintrc.yaml`,
+        stylelint: `./.stylelintrc.yaml`
+    },
+
+    /**
+    * List sources folders for specific task.
+    *
+    * @note Following format {key}:{value}
+    *   @var {key}   - Task name from `./gulpflow/tasks/` folder.
+    *   @var {value} - Array|String of all path to look for files.
+    */
+    sources: {
+        css: '/components/**/assets/raw/**/*.css',
+        fonts: '/components/**/assets/fonts/**/*.{eot,svg,ttf,woff,woff2}',
+        html: '/components/**/assets/raw/**/*.html',
+        images: '/components/**/assets/images/**/*.{jpg,jpeg,png,gif,svg}',
+        js: '/components/**/js/**/*.js',
+        json: '/components/**/assets/raw/**/*.json',
+        scss: '/components/**/scss/**/*.{sass,scss}'
+    },
+
+    /**
+    * Main tasks to run.
+    *
+    * @note Following format {key}:{value}
+    *   @var {key}   - Task name from `./gulpflow/core/` folder.
+    *   @var {value} - Array of all tasks from `./gulpflow/tasks/` folder to run.
+    */
+    tasks: {
+        watch: ['js', 'scss'],
+        build: ['html', 'css', 'json', 'fonts', 'images', 'js', 'scss']
+    }
+};
+
+const boilerplate = require('@essomia/frontend-boilerplate')(customConfig);
+```
 
 ## Tasks
 
-This is the full list of tasks, that I could use in a project. All available tasks are placed in the folder `./gulpflow/` as separate `*.js` files and since we use the CommonJS modules format, usually, a filename = task name.
+This is the full list of tasks available, that you can use in a project.
+
+All available tasks are placed in the folder `./gulpflow/` as separate `*.js` files and since we use the CommonJS modules format, usually, a filename equal a task name.
 
 ### Core tasks
 
 | Task name | Description                                                        |
 | :-------- | :----------------------------------------------------------------- |
-| `assets`  | Compile only assets (images, fonts, json,...) to destination.      |
 | `build`   | Compile entire project (assets + styles + scripts) to destination. |
 | `clean`   | Remove destination files of the project.                           |
 | `watch`   | Watch sources files of project for modifications.                  |
 
 ### Files tasks
 
-| Task name | Description                                                        |
-| :-------- | :----------------------------------------------------------------- |
-| `css`     | Optimize `.css` with autoprefixer & cssnano.                       |
-| `fonts`   | Copy `.eot/.svg/.ttf/.woff/.woff2`                                 |
-| `html`    | Optimize `.html` with htmlmin.                                     |
-| `images`  | Optimize `.jpg/.jpeg/.png/.gif/.svg` with imagemin.                |
-| `js`      | Optimize `.js` with uglify and include                             |
-| `json`    | Optimize `.json` with jsonminify.                                  |
-| `scss`    | Compile `.sass/.scss` to `.css` with sass, autoprefixer & cssnano. |
-
-## Configuration file
-
-All default config are written in `./gulpflow/config.js`: conditional compilation, sources paths and tasks list. If you need to configure your own workflow, add a `gulpflow.json` file at the same level as your `package.json`. Then, you can customize your project configuration. Below you have an example of the `gulpflow.json` with its defaults values:
-
-```
-{
-    "root": {
-        "src": "./example/src",
-        "dest": "./example/app"
-    },
-    "ifs": {
-        "doSourcemaps": false,
-        "doMinify": true
-    },
-    "sources": {
-        "js":     "/components/**/js/**/*.js",
-        "scss":   "/components/**/scss/**/*.{sass,scss}",
-        "images": "/components/**/assets/images/**/*.{jpg,jpeg,png,gif,svg}",
-        "fonts":  "/components/**/assets/fonts/**/*.{eot,svg,ttf,woff,woff2}",
-        "html":   "/components/**/assets/raw/**/*.html",
-        "css":    "/components/**/assets/raw/**/*.css",
-        "json":   "/components/**/assets/raw/**/*.json"
-    },
-    "tasks": {
-        "watch": ["images", "fonts", "html", "json", "css", "scss", "js"],
-        "assets":["images", "fonts", "html", "json", "css"],
-        "build": ["images", "fonts", "html", "json", "css", "scss", "js"]
-    }
-}
-```
+| Task name | Description                                                                                    |
+| :-------- | :--------------------------------------------------------------------------------------------- |
+| `css`     | Optimize `.css` with autoprefixer & cssnano.                                                   |
+| `fonts`   | Copy `.eot/.svg/.ttf/.woff/.woff2`                                                             |
+| `html`    | Optimize `.html` with htmlmin.                                                                 |
+| `images`  | Optimize `.jpg/.jpeg/.png/.gif/.svg` with imagemin.                                            |
+| `js`      | Optimize `.js` with uglify and include + Lint files with babel and eslint.                     |
+| `json`    | Optimize `.json` with jsonminify.                                                              |
+| `scss`    | Compile `.sass/.scss` to `.css` with sass, autoprefixer & cssnano + Lint files with stylelint. |
 
 ## Folders structure
 
