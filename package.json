@@ -12,7 +12,7 @@
   "bugs": {
     "url": "https://github.com/essomia/frontend-boilerplate/issues"
   },
-  "main": "gulpfile.js",
+  "main": "./gulpflow/index.js",
   "scripts": {
     "build": "gulp build",
     "clean": "gulp clean",
