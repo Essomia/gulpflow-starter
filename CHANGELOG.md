@@ -2,16 +2,19 @@
 
 ## Unreleased
 
-- Adjust `.eslintrc` and `.stylelintrc` rules to be less restrictive.
-- Base `.eslintrc` rules on _airbnb-base_ javascript config.
-- Add conditional flag for linters in tasks.
-- Use `gulp-load-subtasks` to pass modules dependencies and configuration in tasks.
-- Create an `index.js` file to manage project configuration and run tasks instead of `gulpfile.js`.
-- Improve documentation on how to use the boilerplate.
-
 ---
 
 ## Releases
+
+### [1.3.0](https://github.com/Essomia/gulpflow-starterpare1.2.3...1.3.0)
+
+- Adjust linters `.eslintrc` and `.stylelintrc` rules to be less restrictive.
+- Base `.eslintrc` rules on _airbnb-base_ javascript config.
+- Add conditional flag for linters in tasks.
+- Use `gulp-load-subtasks` to pass modules dependencies and configuration in tasks.
+- Move default `config.js` data into and `index.js` file to allow custom configuration in projects.
+- Improve documentation on how to use the boilerplate.
+- Rename the package name to `gulpflow-starter`.
 
 ### [1.2.3](https://github.com/Essomia/gulpflow-starterpare/1.2.2...1.2.3)
 

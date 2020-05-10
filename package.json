@@ -1,7 +1,7 @@
 {
   "name": "@essomia/gulpflow-starter",
-  "version": "1.2.3",
-  "description": "",
+  "version": "1.3.0",
+  "description": "Boilerplate to start a gulp front-end project with scss, babel, linter and images optimisation.",
   "homepage": "https://github.com/essomia/gulpflow-starter#readme",
   "author": "Melissa Boutry <github@melissaboutry.com>",
   "license": "MIT",
