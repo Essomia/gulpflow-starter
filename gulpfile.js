@@ -1,5 +1,5 @@
 // ------------------------------
-// -- Front-end Boilerplate
+// -- Gulpflow Starter
 // ------------------------------
 
 /* eslint-disable-next-line no-unused-vars */
