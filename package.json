@@ -1,20 +1,23 @@
 {
-  "name": "@essomia/frontend-boilerplate",
-  "version": "1.2.3",
-  "description": "",
-  "homepage": "https://github.com/essomia/frontend-boilerplate#readme",
+  "name": "@essomia/gulpflow-starter",
+  "version": "1.3.0",
+  "description": "Boilerplate to start a gulp front-end project with scss, babel, linter and images optimisation.",
+  "homepage": "https://github.com/essomia/gulpflow-starter#readme",
   "author": "Melissa Boutry <github@melissaboutry.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/essomia/frontend-boilerplate.git"
+    "url": "git://github.com/essomia/gulpflow-starter.git"
   },
   "bugs": {
-    "url": "https://github.com/essomia/frontend-boilerplate/issues"
+    "url": "https://github.com/essomia/gulpflow-starter/issues"
   },
-  "main": "gulpfile.js",
+  "main": "./gulpflow/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp build",
+    "clean": "gulp clean",
+    "watch": "gulp watch",
+    "help": "gulp --tasks"
   },
   "dependencies": {
     "@babel/core": "^7.9.0",
@@ -23,13 +26,13 @@
     "cssnano": "^4.1.10",
     "del": "^5.1.0",
     "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "fancy-log": "^1.3.3",
-    "fs": "0.0.1-security",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-babel": "^8.0.0",
@@ -48,11 +51,10 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-stylelint": "^13.0.0",
     "gulp-uglify": "^3.0.2",
-    "merge-objects": "^1.0.5",
-    "stylelint": "^13.3.2",
+    "stylelint": "^13.3.3",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.0.0",
-    "stylelint-scss": "^3.17.0",
+    "stylelint-scss": "^3.17.1",
     "through2": "^3.0.1"
   }
 }
