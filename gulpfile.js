@@ -1,21 +1,6 @@
 // ------------------------------
-// -- Front-end boilerplate
+// -- Gulpflow Starter
 // ------------------------------
 
-'use strict';
-
-
-//
-// Require basic plugins
-//
-
-const gulp    = require('gulp');
-const plugins = require('gulp-load-plugins')();
-
-
-//
-// Load gulp tasks
-//
-
-plugins.loadSubtasks(__dirname + '/gulpflow/tasks/*.js');
-plugins.loadSubtasks(__dirname + '/gulpflow/core/*.js');
+/* eslint-disable-next-line no-unused-vars */
+const GulpFlow = require('./gulpflow')();

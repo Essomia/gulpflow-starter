@@ -1,15 +1,13 @@
-const colors = require('colors/safe');
-const log = require('fancy-log');
-const through = require('through2');
+const { info } = require('fancy-log');
+const { obj } = require('through2');
+const { yellow: cYellow } = require('colors/safe');
 
-const filenameLog = () => {
-    return through.obj((file, encodage, cb) => {
-        var filename = file.path.split(file.cwd)[1];
+const filenameLog = () => obj((file, encodage, cb) => {
+    const filename = file.path.split(file.cwd)[1];
 
-        log.info(colors.yellow(`> .${filename}`));
+    info(cYellow(`> .${filename}`));
 
-        cb(null, file);
-    });
-};
+    cb(null, file);
+});
 
 module.exports = filenameLog;

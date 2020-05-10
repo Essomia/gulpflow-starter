@@ -1,5 +1,5 @@
 {
-    "name": "@essomia/frontend-boilerplate",
+    "name": "@essomia/gulpflow-starter",
     "license": "UNLICENSED",
     "private": true,
     "devDependencies": {
