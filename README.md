@@ -1,33 +1,33 @@
-# Front-end boilerplate
+# Gulpflow Starter
 
-Front-end boilerplate is a basic starter kit for gulp development that use scss, babel, linter and images optimisations.
+Gulpflow Starter is a basic boilerplate to start a gulp front-end project with scss, babel, linter and images optimisation.
 
 ## Dependencies
 
 Make sure the following are installed first:
 
-- Node.Js - `brew install node`
-- Gulp Command Line Utility - `npm install -g gulp-cli`
+- Node.Js
+- Gulp Command Line Utility
 
 ## Installation
 
 Add this repository as one of your project dependencies.
 
 ```
-npm install git://github.com/essomia/frontend-boilerplate.git
+npm install git://github.com/essomia/gulpflow-starter.git
 ```
 
 Set your project to use the boilerplate within the `gulpfile.js` file.
 
 ```js
-const boilerplate = require('@essomia/frontend-boilerplate')();
+const boilerplate = require('@essomia/gulpflow-starter')();
 ```
 
 Now, you can run `gulp build` to build project from sources folder to destination folder **with the default configuration**.
 
 ## Configuration
 
-All default configuration are written in `./gulpflow/index.js`: conditional compilation, sources paths and tasks list.
+All default configuration are written in `./gulpflow/index.js`: conditional compilation, source paths and tasks list.
 
 If you need to configure your own workflow, adjust your `gulpfile.js` file and pass your custom configuration to the boilerplate.
 
@@ -90,7 +90,7 @@ const customConfig = {
     }
 };
 
-const boilerplate = require('@essomia/frontend-boilerplate')(customConfig);
+const boilerplate = require('@essomia/gulpflow-starter')(customConfig);
 ```
 
 ## Tasks

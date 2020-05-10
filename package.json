@@ -1,16 +1,16 @@
 {
-  "name": "@essomia/frontend-boilerplate",
+  "name": "@essomia/gulpflow-starter",
   "version": "1.2.3",
   "description": "",
-  "homepage": "https://github.com/essomia/frontend-boilerplate#readme",
+  "homepage": "https://github.com/essomia/gulpflow-starter#readme",
   "author": "Melissa Boutry <github@melissaboutry.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/essomia/frontend-boilerplate.git"
+    "url": "git://github.com/essomia/gulpflow-starter.git"
   },
   "bugs": {
-    "url": "https://github.com/essomia/frontend-boilerplate/issues"
+    "url": "https://github.com/essomia/gulpflow-starter/issues"
   },
   "main": "./gulpflow/index.js",
   "scripts": {
