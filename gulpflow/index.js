@@ -9,8 +9,8 @@ const GulpFlow = (config) => {
          * Main path for sources and destination folder.
          */
         root: {
-            src: './example/src',
-            dest: './example/app'
+            src: './example/src/',
+            dest: './example/app/'
         },
 
         /**
@@ -38,13 +38,13 @@ const GulpFlow = (config) => {
          *   @var {value} - Array|String of all path to look for files.
          */
         sources: {
-            css: '/components/**/assets/raw/**/*.css',
-            fonts: '/components/**/assets/fonts/**/*.{eot,svg,ttf,woff,woff2}',
-            html: '/components/**/assets/raw/**/*.html',
-            images: '/components/**/assets/images/**/*.{jpg,jpeg,png,gif,svg}',
-            js: '/components/**/js/**/*.js',
-            json: '/components/**/assets/raw/**/*.json',
-            scss: '/components/**/scss/**/*.{sass,scss}'
+            css: 'components/**/assets/raw/**/*.css',
+            fonts: 'components/**/assets/fonts/**/*.{eot,svg,ttf,woff,woff2}',
+            html: 'components/**/assets/raw/**/*.html',
+            images: 'components/**/assets/images/**/*.{jpg,jpeg,png,gif,svg}',
+            js: 'components/**/js/**/*.js',
+            json: 'components/**/assets/raw/**/*.json',
+            scss: 'components/**/scss/**/*.{sass,scss}'
         },
 
         /**
