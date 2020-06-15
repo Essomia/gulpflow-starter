@@ -6,7 +6,7 @@ const GulpFlow = (config) => {
      */
     const defaultConfig = {
         /**
-         * Main path for sources and destination folder.
+         * Main path for sources and destinations folder.
          */
         root: {
             src: './example/src/',
@@ -45,6 +45,23 @@ const GulpFlow = (config) => {
             js: 'components/**/js/**/*.js',
             json: 'components/**/assets/raw/**/*.json',
             scss: 'components/**/scss/**/*.{sass,scss}'
+        },
+
+        /**
+         * List destinations folders for specific task.
+         *
+         * @note Following format {key}:{value}
+         *   @var {key}   - Task name from `./gulpflow/tasks/` folder.
+         *   @var {value} - Array|String of all path to look for files.
+         */
+        destinations: {
+            css: 'css/',
+            fonts: 'fonts/',
+            html: 'templates/',
+            images: 'images/',
+            js: 'scripts/',
+            json: 'json/',
+            scss: 'styles/'
         },
 
         /**
