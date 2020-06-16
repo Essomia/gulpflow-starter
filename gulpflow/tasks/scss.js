@@ -1,5 +1,6 @@
 const cssnano = require('cssnano');
 const filenameLog = require('../util/filenameLog');
+const renameDirPath = require('../util/renameDirPath');
 
 const scss = (gulp, $, config) => {
     gulp.task('scss', () => gulp
@@ -39,6 +40,16 @@ const scss = (gulp, $, config) => {
         .pipe($.if(
             config.ifs.doSourcemaps,
             $.sourcemaps.write('.')
+        ))
+        .pipe($.if(
+            Boolean(config.destinations.scss),
+            $.rename((path) => {
+                // eslint-disable-next-line no-param-reassign
+                path.dirname =
+                    config.destinations.scss +
+                    renameDirPath(path.dirname, config.sources.scss)
+                ;
+            })
         ))
         .pipe(gulp.dest(config.root.dest))
         .pipe(filenameLog()));

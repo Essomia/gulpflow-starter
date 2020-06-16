@@ -6,6 +6,11 @@
 
 ## Releases
 
+### [1.4.0](https://github.com/Essomia/gulpflow-starterpare1.3.0...1.4.0)
+
+- Add new config `destinations` use by `gulp-rename` to rename dirname for build files.
+- Adjust documentation on how to use the new config.
+
 ### [1.3.0](https://github.com/Essomia/gulpflow-starterpare1.2.3...1.3.0)
 
 - Adjust linters `.eslintrc` and `.stylelintrc` rules to be less restrictive.
