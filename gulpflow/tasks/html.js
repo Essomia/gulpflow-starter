@@ -1,4 +1,5 @@
 const filenameLog = require('../util/filenameLog');
+const renameDirPath = require('../util/renameDirPath');
 
 const html = (gulp, $, config) => {
     gulp.task('html', () => gulp
@@ -11,6 +12,16 @@ const html = (gulp, $, config) => {
                 quoteCharacter: '"',
                 removeComments: true,
                 collapseWhitespace: true
+            })
+        ))
+        .pipe($.if(
+            Boolean(config.destinations.html),
+            $.rename((path) => {
+                // eslint-disable-next-line no-param-reassign
+                path.dirname =
+                    config.destinations.html +
+                    renameDirPath(path.dirname, config.sources.html)
+                ;
             })
         ))
         .pipe(gulp.dest(config.root.dest))

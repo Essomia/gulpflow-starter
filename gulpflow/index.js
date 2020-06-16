@@ -6,11 +6,11 @@ const GulpFlow = (config) => {
      */
     const defaultConfig = {
         /**
-         * Main path for sources and destination folder.
+         * Main path for sources and destinations folder.
          */
         root: {
-            src: './example/src',
-            dest: './example/app'
+            src: './example/src/',
+            dest: './example/app/'
         },
 
         /**
@@ -38,13 +38,30 @@ const GulpFlow = (config) => {
          *   @var {value} - Array|String of all path to look for files.
          */
         sources: {
-            css: '/components/**/assets/raw/**/*.css',
-            fonts: '/components/**/assets/fonts/**/*.{eot,svg,ttf,woff,woff2}',
-            html: '/components/**/assets/raw/**/*.html',
-            images: '/components/**/assets/images/**/*.{jpg,jpeg,png,gif,svg}',
-            js: '/components/**/js/**/*.js',
-            json: '/components/**/assets/raw/**/*.json',
-            scss: '/components/**/scss/**/*.{sass,scss}'
+            css: 'components/**/assets/raw/**/*.css',
+            fonts: 'components/**/assets/fonts/**/*.{eot,svg,ttf,woff,woff2}',
+            html: 'components/**/assets/raw/**/*.html',
+            images: 'components/**/assets/images/**/*.{jpg,jpeg,png,gif,svg}',
+            js: 'components/**/js/**/*.js',
+            json: 'components/**/assets/raw/**/*.json',
+            scss: 'components/**/scss/**/*.{sass,scss}'
+        },
+
+        /**
+         * List destinations folders for specific task.
+         *
+         * @note Following format {key}:{value}
+         *   @var {key}   - Task name from `./gulpflow/tasks/` folder.
+         *   @var {value} - Array|String of all path to look for files.
+         */
+        destinations: {
+            css: 'css/',
+            fonts: 'fonts/',
+            html: 'templates/',
+            images: 'images/',
+            js: 'scripts/',
+            json: 'json/',
+            scss: 'styles/'
         },
 
         /**
