@@ -77,6 +77,8 @@ const GulpFlow = (config) => {
         }
     };
 
+    global.gulpflowConfig = { ...defaultConfig, ...config };
+
 
     /**
      * Load Gulflow Tasks

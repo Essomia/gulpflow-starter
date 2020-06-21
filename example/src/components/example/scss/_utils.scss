@@ -1,0 +1,83 @@
+/**
+ * Example - Utils
+ */
+
+//
+//-- Variables
+//
+
+$util-icon-replace-color-1: #77879a;
+$util-icon-replace-color-2: #a97877;
+$util-icon-replace-colors: (
+    $util-icon-replace-color-1,
+    $util-icon-replace-color-2
+);
+
+//
+//-- Mixins
+//
+
+@mixin util-icon-inline-image($file, $color: false) {
+    $uri: '';
+    $svg: scssfunction-read-file($file); // Use custom sass function
+
+    @if $color {
+        @if type-of($color) == 'color' {
+            $svg: util-color-replace($svg, $util-icon-replace-color-1, $color);
+        }
+
+        @if type-of($color) == 'list' {
+            @for $i from 1 through length($color) {
+                $svg: util-color-replace($svg, nth($util-icon-replace-colors, $i), nth($color, $i));
+            }
+        }
+    }
+
+    $uri: util-svg-data-uri($svg);
+
+    // Output
+    background-image: #{$uri};
+}
+
+//
+//-- Functions
+//
+
+@function util-string-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + util-string-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+@function util-color-replace($string, $oldColor, $newColor) {
+    $string: util-string-replace($string, inspect($oldColor), inspect($newColor));
+    $string: util-string-replace($string, inspect($oldColor), inspect($newColor));
+
+    @return $string;
+}
+
+@function util-svg-data-uri($svg) {
+    $encoded: '';
+    $slice: 2000;
+    $index: 0;
+    $loops: ceil(str-length($svg) / $slice);
+
+    // Chunk up string in order to avoid "stack level too deep" error
+    @for $i from 1 through $loops {
+        $chunk: str-slice($svg, $index, $index + $slice - 1);
+        $chunk: util-string-replace($chunk, '"', "'");
+        $chunk: util-string-replace($chunk, '<', '%3C');
+        $chunk: util-string-replace($chunk, '>', '%3E');
+        $chunk: util-string-replace($chunk, '&', '%26');
+        $chunk: util-string-replace($chunk, '#', '%23');
+
+        $encoded: #{$encoded}#{$chunk};
+        $index: $index + $slice;
+    }
+
+    @return url("data:image/svg+xml;charset=utf8,#{$encoded}"); // stylelint-disable-next-line string-quotes
+}
