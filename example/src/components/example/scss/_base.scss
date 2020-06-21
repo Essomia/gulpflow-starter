@@ -18,5 +18,9 @@ body {
         display: block;
         color: $site-text-color;
         text-align: center;
+
+        &::before {
+            @include util-icon-inline-image('components/example/assets/images/icon-clap.svg', $site-icon-color);
+        }
     }
 }
