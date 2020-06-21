@@ -1,6 +1,7 @@
 const cssnano = require('cssnano');
 const filenameLog = require('../util/filenameLog');
 const renameDirPath = require('../util/renameDirPath');
+const sassFunctions = require('../util/sassFunctions');
 
 const scss = (gulp, $, config) => {
     gulp.task('scss', () => gulp
@@ -25,6 +26,7 @@ const scss = (gulp, $, config) => {
             })
         ))
         .pipe($.sass({
+            functions: sassFunctions,
             outputStyle: 'expanded',
             precision: 5,
             includePaths: [config.root.src]

@@ -6,6 +6,13 @@
 
 ## Releases
 
+### [1.5.0](https://github.com/Essomia/gulpflow-starterpare1.4.0...1.5.0)
+
+- Add missing [license](./LICENSE) file.
+- Add gulpflow project configuration to `global` namespace.
+- Create new `sassFunctions` to improve `sass` compiler with custom functions.
+- Modify example component to use new sass functions: replace color of a svg image to be use inline.
+
 ### [1.4.0](https://github.com/Essomia/gulpflow-starterpare1.3.0...1.4.0)
 
 - Add new config `destinations` use by `gulp-rename` to rename dirname for build files.
