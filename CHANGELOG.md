@@ -6,6 +6,11 @@
 
 ## Releases
 
+### [1.5.4](https://github.com/essomia/gulpflow-starter/compare/1.5.3...1.5.4)
+
+- _Fix_: NPM dependencies warning.
+- _Fix_: Remove useless eslint-config-standard after update.
+
 ### [1.5.3](https://github.com/essomia/gulpflow-starter/compare/1.5.2...1.5.3)
 
 - _Fix_: NPM dependencies warning.
