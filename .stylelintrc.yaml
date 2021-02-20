@@ -19,7 +19,7 @@ rules:
   # Fonts
   font-family-name-quotes: always-where-recommended
   # Types strings, number...
-  number-leading-zero: never
+  number-leading-zero: always
   string-quotes: single
   # Function
   function-url-quotes: always

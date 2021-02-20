@@ -7,9 +7,7 @@
     const value = 'example';
 
     application.action = () => {
-
         /* ... */
-
     };
 
     class ExampleClass {

@@ -8,10 +8,7 @@
 
 $util-icon-replace-color-1: #77879a;
 $util-icon-replace-color-2: #a97877;
-$util-icon-replace-colors: (
-    $util-icon-replace-color-1,
-    $util-icon-replace-color-2
-);
+$util-icon-replace-colors: ($util-icon-replace-color-1, $util-icon-replace-color-2);
 
 //
 //-- Mixins
@@ -47,7 +44,9 @@ $util-icon-replace-colors: (
     $index: str-index($string, $search);
 
     @if $index {
-        @return str-slice($string, 1, $index - 1) + $replace + util-string-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+        /* stylelint-disable scss/operator-no-newline-after, comment-empty-line-before */
+        @return str-slice($string, 1, $index - 1) + $replace +
+            util-string-replace(str-slice($string, $index + str-length($search)), $search, $replace);
     }
 
     @return $string;
@@ -79,5 +78,5 @@ $util-icon-replace-colors: (
         $index: $index + $slice;
     }
 
-    @return url("data:image/svg+xml;charset=utf8,#{$encoded}"); // stylelint-disable-next-line string-quotes
+    @return url('data:image/svg+xml;charset=utf8,#{$encoded}');
 }
