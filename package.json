@@ -3,7 +3,7 @@
   "version": "1.5.4",
   "description": "Boilerplate to start a gulp front-end project with scss, babel, linter and images optimisation.",
   "homepage": "https://github.com/essomia/gulpflow-starter#readme",
-  "author": "Melissa Boutry <github@melissaboutry.com>",
+  "author": "Melissa Boutry <essomia@users.noreply.github.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
