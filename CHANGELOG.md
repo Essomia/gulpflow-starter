@@ -6,6 +6,10 @@
 
 ## Releases
 
+### [1.5.5](https://github.com/essomia/gulpflow-starter/compare/1.5.4...1.5.5)
+
+- _Fix_: NPM dependencies warning.
+
 ### [1.5.4](https://github.com/essomia/gulpflow-starter/compare/1.5.3...1.5.4)
 
 - _Fix_: NPM dependencies warning.
