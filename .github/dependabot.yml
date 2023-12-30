@@ -1,0 +1,24 @@
+# Set update schedule for GitHub Actions
+
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: /
+    # Check for updates to GitHub Actions every week
+    schedule:
+      interval: 'weekly'
+      day: 'wednesday'
+    target-branch: 'main'
+    labels:
+      - 'dependencies'
+    open-pull-requests-limit: 2
+    commit-message:
+      prefix: 'chore: '
+    # Create a group of dependencies to be updated together in one pull request
+    groups:
+      # Specify a name for the group, which will be used in pull request titles
+      production-dependencies:
+        dependency-type: 'production'
+      development-dependencies:
+        dependency-type: 'development'
