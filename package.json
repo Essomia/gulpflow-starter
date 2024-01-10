@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.23.7",
-    "@babel/preset-env": "^7.23.7",
+    "@babel/preset-env": "^7.23.8",
     "colors": "^1.4.0",
     "cssnano": "^6.0.3",
     "del": "^7.1.0",
