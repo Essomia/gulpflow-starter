@@ -53,7 +53,7 @@
     "gulp-stylelint": "^13.0.0",
     "gulp-uglify": "^3.0.2",
     "node-sass": "^9.0.0",
-    "sass": "^1.70.0",
+    "sass": "^1.71.1",
     "stylelint": "^16.2.1",
     "stylelint-config-standard": "^36.0.0",
     "stylelint-order": "^6.0.4",
