@@ -33,7 +33,7 @@
     "eslint-plugin-standard": "^5.0.0",
     "fancy-log": "^2.0.0",
     "fs": "0.0.1-security",
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.0",
     "gulp-autoprefixer": "^9.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-eslint": "^6.0.0",
