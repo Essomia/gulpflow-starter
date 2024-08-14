@@ -20,16 +20,16 @@
     "help": "gulp --tasks"
   },
   "dependencies": {
-    "@babel/core": "^7.24.7",
-    "@babel/preset-env": "^7.24.7",
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.3",
     "colors": "^1.4.0",
-    "cssnano": "^7.0.2",
+    "cssnano": "^7.0.5",
     "del": "^7.1.0",
-    "eslint": "^9.4.0",
+    "eslint": "^9.9.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.2.0",
+    "eslint-plugin-promise": "^7.1.0",
     "eslint-plugin-standard": "^5.0.0",
     "fancy-log": "^2.0.0",
     "fs": "0.0.1-security",
@@ -53,11 +53,11 @@
     "gulp-stylelint": "^13.0.0",
     "gulp-uglify": "^3.0.2",
     "node-sass": "^9.0.0",
-    "sass": "^1.77.4",
-    "stylelint": "^16.6.1",
-    "stylelint-config-standard": "^36.0.0",
+    "sass": "^1.77.8",
+    "stylelint": "^16.8.1",
+    "stylelint-config-standard": "^36.0.1",
     "stylelint-order": "^6.0.4",
-    "stylelint-scss": "^6.3.1",
+    "stylelint-scss": "^6.5.0",
     "through2": "^4.0.2"
   }
 }
